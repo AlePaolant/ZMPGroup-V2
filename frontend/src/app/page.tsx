@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
-    title: "Cars - ZMP Group",
+    title: "ZMP Group | Home",
     description: "Ci occupiamo di tutto ciò che riguarda l’edilizia e le auto",
 };
 

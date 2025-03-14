@@ -3,6 +3,7 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import { FaRegClipboard, FaRegHandshake, FaToolbox, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
+import { JSX } from "react";
 
 // Oggetti per placeholder e regex
 const fieldPlaceholders: { [key: string]: string } = {
