@@ -1,6 +1,7 @@
 import EdiliziaForm from '@/components/EdiliziaForm';
 import Navbar from '@/components/Navbar-edilizia';
 import Image from 'next/image';
+import Carousel from '@/components/EdiliziaCarousel';
 
 const Edilizia = () => {
     return (
@@ -66,6 +67,10 @@ const Edilizia = () => {
                 <h1>Benvenuto sulla nostra pagina di contatto!</h1>
                 <p>Seleziona un modulo per inviare un messaggio:</p>
                 <p className='cursor-pointer !important'>pointer</p>
+            </div>
+            <div className="flex flex-col items-center">
+                <h1 className="text-3xl font-bold my-6">Progetti edilizi</h1>
+                <Carousel />
             </div>
             <div>
                 {/* Componente interattivo client-side */}

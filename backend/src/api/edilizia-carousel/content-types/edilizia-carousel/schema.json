@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "edilizia_carousels",
+  "info": {
+    "singularName": "edilizia-carousel",
+    "pluralName": "edilizia-carousels",
+    "displayName": "EDILIZIA-carousel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Titolo": {
+      "type": "string"
+    },
+    "Descrizione": {
+      "type": "text"
+    },
+    "Luogo": {
+      "type": "string"
+    },
+    "Immagine": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Data": {
+      "type": "date"
+    }
+  }
+}
