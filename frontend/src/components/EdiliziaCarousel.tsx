@@ -1,68 +1,78 @@
-"use client"; // Necessario per Next.js (App Router)
+"use client";
 
 import { useEffect, useState } from "react";
 import { getEdiliziaCarousel } from "@/lib/strapi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css/effect-coverflow";
+import { EffectCoverflow } from "swiper/modules";
 import Card from "@/components/Edilizia-card";
 
 interface EdiliziaItem {
   id: number;
-  attributes: {
-    Titolo: string;
-    Descrizione: string;
-    Luogo: string;
-    Data: string;
-    Immagine: {
-      name: string;  // Assicurati che l'immagine abbia la proprietà "name"
-    };
+  Titolo: string;
+  Descrizione: string;
+  Luogo: string;
+  Data: string;
+  Immagine: {
+    url: string;
   };
 }
 
 export default function Carousel() {
   const [slides, setSlides] = useState<EdiliziaItem[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
       const data = await getEdiliziaCarousel();
-      console.log("Dati del carosello:", data); // Aggiungi un log per controllare i dati
       setSlides(data);
     }
     fetchData();
   }, []);
 
   if (slides.length === 0) {
-    return <p>Caricamento...</p>; // Mostra un messaggio di caricamento se i dati non sono ancora disponibili
+    return <p className="text-center text-lg">Caricamento...</p>;
   }
 
   return (
-    <Swiper
-      spaceBetween={20}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 3000 }}
-      modules={[Pagination, Autoplay]}
-      className="w-full max-w-4xl mx-auto"
-    >
-      {slides.map((slide) => {
-        if (!slide.attributes) {
-          return null; // Se non ci sono attributi, non renderizzare il componente
-        }
-
-        return (
-          <SwiperSlide key={slide.id}>
+    <div className="w-full max-w-7xl mx-auto sm:px-1 md:px-2 lg:px-8 pb-8 pt-8 
+    h-[65vh] max-h-[400px] md:max-h-[500px] lg:max-h-[600px] flex items-center justify-center">
+      <Swiper
+        spaceBetween={20}  // Ridotto per migliorare la visibilità
+        centeredSlides={true}
+        loop={true}
+        effect="coverflow"
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 1.5,
+          slideShadows: false,
+        }}
+        breakpoints={{
+          320: { slidesPerView: 1.5 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        }}
+        modules={[EffectCoverflow]}
+        className="w-full h-full overflow-hidden"
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={slide.id} className="transition-all duration-300 flex justify-center">
             <Card
-              titolo={slide.attributes.Titolo}
-              descrizione={slide.attributes.Descrizione}
-              luogo={slide.attributes.Luogo}
-              data={slide.attributes.Data}
-              immagine={`http://localhost:1337${slide.attributes.Immagine.name}`}
+              titolo={slide.Titolo}
+              descrizione={slide.Descrizione}
+              luogo={slide.Luogo}
+              data={slide.Data}
+              immagine={`http://localhost:1337${slide.Immagine.url}`}
+              isActive={index === activeIndex}
             />
           </SwiperSlide>
-        );
-      })}
-    </Swiper>
-  );
-}
+        ))}
+      </Swiper>
+    </div>
+  )
+};
