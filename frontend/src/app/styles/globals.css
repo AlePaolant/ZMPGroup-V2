@@ -22,12 +22,10 @@
 }
 
 /* Usa il font dinamico */
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-montserrat), sans-serif;
 }
-p{
-  cursor: pointer;
-}
-

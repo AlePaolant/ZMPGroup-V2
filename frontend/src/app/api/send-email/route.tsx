@@ -25,7 +25,7 @@ export async function POST(req: Request) {
             recaptchaToken,
         } = data;
 
-        // 🔹 1. Verifica il reCAPTCHA
+        // Verifica reCAPTCHA
         const secretKey = "6LcgifMqAAAAAB5Q17G4L11MypHL1S3ZtXjS7I5n"; // Sostituisci con la tua Secret Key
         const recaptchaResponse = await axios.post(
             `https://www.google.com/recaptcha/api/siteverify`,
@@ -44,16 +44,16 @@ export async function POST(req: Request) {
             return new Response(JSON.stringify({ error: "Captcha non valido" }), { status: 400 });
         }
 
-        // 🔹 2. Configura il trasportatore con un'App Password di Gmail
+        //Configurato il trasportatore con un'App Password di Gmail
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: "alexpaolantonio@gmail.com", // Sostituisci con il tuo indirizzo email
-                pass: "qdeihcivkyojwnzj",   // Usa una App Password, NON la tua password normale!
+                user: "alexpaolantonio@gmail.com", // Sostituisci con indirizzo email funzionante
+                pass: "qdeihcivkyojwnzj",   // App Password
             },
         });
 
-        // 🔹 3. Imposta l'oggetto e il corpo della mail
+        //Oggetto e corpo della mail
         let subject = "";
         let body = "";
 
@@ -121,7 +121,7 @@ export async function POST(req: Request) {
                 return new Response(JSON.stringify({ error: "Tipo di modulo non valido" }), { status: 400 });
         }
 
-        // 🔹 4. Crea e invia l'email
+        //Crea e invia l'email
         const message = {
             from: "alexpaolantonio@gmail.com",
             to: "alexpaolantonio@gmail.com",
@@ -130,7 +130,7 @@ export async function POST(req: Request) {
             html: body, 
         };
 
-        console.log("🔹 Email in invio:", message);
+        console.log("Email in invio:", message);
 
         await transporter.sendMail(message);
 
