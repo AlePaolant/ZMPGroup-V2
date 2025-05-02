@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar-cars';
 import Image from 'next/image';
 import ScrollArrow from '@/components/ScrollArrow';
 import Footer from '@/components/Footer';
+import Gallery from '@/components/Gallery';
 import {
     FaFacebook,
     FaInstagram,
@@ -126,20 +127,8 @@ const Cars = () => {
                 </div>
                 <ScrollArrow />
             </main>
-            
+
             <CarsRichiesta />
-            <section id='compra' className='w-full min-h-screen bg-red-500 flex items-start justify-center'>
-                <div>
-                    <h1 className='--font-poppins'>ciao</h1>
-                    <h1
-                        style={{ fontFamily: "var(--font-playfair), serif" }}
-                        className="text-4xl"
-                    >
-                        COMPRA scritto con playfair
-                    </h1>
-                    <p className="cursor-pointer">pointer</p>
-                </div>
-            </section>
 
             <VendiForm />
 
@@ -163,6 +152,11 @@ const Cars = () => {
                         ))}
                     </div>
                 </div>
+            </section>
+
+            <section> 
+                {/* la collection in strapi è cars-gallery ma sto cesso la pluralizza da solo */}
+                <Gallery collectionName="cars-galleries" />
             </section>
 
             <Footer

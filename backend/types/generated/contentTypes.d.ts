@@ -369,6 +369,39 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCarsGalleryCarsGallery extends Struct.CollectionTypeSchema {
+  collectionName: 'cars_galleries';
+  info: {
+    description: '';
+    displayName: 'cars-gallery';
+    pluralName: 'cars-galleries';
+    singularName: 'cars-gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cars-gallery.cars-gallery'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEdiliziaCarouselEdiliziaCarousel
   extends Struct.CollectionTypeSchema {
   collectionName: 'edilizia_carousels';
@@ -396,6 +429,41 @@ export interface ApiEdiliziaCarouselEdiliziaCarousel
     Luogo: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     Titolo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEdiliziaGalleryEdiliziaGallery
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'edilizia_galleries';
+  info: {
+    description: '';
+    displayName: 'edilizia-gallery';
+    pluralName: 'edilizia-galleries';
+    singularName: 'edilizia-gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::edilizia-gallery.edilizia-gallery'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -911,7 +979,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::cars-gallery.cars-gallery': ApiCarsGalleryCarsGallery;
       'api::edilizia-carousel.edilizia-carousel': ApiEdiliziaCarouselEdiliziaCarousel;
+      'api::edilizia-gallery.edilizia-gallery': ApiEdiliziaGalleryEdiliziaGallery;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

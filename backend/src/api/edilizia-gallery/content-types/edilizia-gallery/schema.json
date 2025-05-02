@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "edilizia_galleries",
+  "info": {
+    "singularName": "edilizia-gallery",
+    "pluralName": "edilizia-galleries",
+    "displayName": "edilizia-gallery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "location": {
+      "type": "string"
+    }
+  }
+}

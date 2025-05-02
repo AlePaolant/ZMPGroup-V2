@@ -1,7 +1,7 @@
 import EdiliziaForm from '@/components/EdiliziaForm';
 import Navbar from '@/components/Navbar-edilizia';
 import Image from 'next/image';
-import Carousel from '@/components/EdiliziaCarousel';
+import Gallery from "@/components/Gallery";
 
 const Edilizia = () => {
     return (
@@ -69,8 +69,8 @@ const Edilizia = () => {
                 <p className='cursor-pointer !important'>pointer</p>
             </div>
             <div className="flex flex-col items-center">
-                <h1 className="text-3xl font-bold my-6">Progetti edilizi</h1>
-                <Carousel />
+                <h1 className="text-3xl font-bold my-6">I nostri cantieri</h1>
+                <Gallery collectionName="edilizia-galleries" />
             </div>
             <div>
                 {/* Componente interattivo client-side */}

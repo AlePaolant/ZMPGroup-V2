@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cars_galleries",
+  "info": {
+    "singularName": "cars-gallery",
+    "pluralName": "cars-galleries",
+    "displayName": "cars-gallery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}
