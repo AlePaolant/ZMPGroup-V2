@@ -29,3 +29,41 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* Pulizia completa MultiRangeSlider */
+.multi-range-slider {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Thumb (pallini) */
+.multi-range-slider .thumb {
+  background-color: #7c3aed !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Track interna */
+.multi-range-slider .bar-inner {
+  background-color: #7c3aed !important; /* tuo colore */
+  height: 6px !important;
+  box-shadow: none !important;
+  border-radius: 6px;
+}
+
+/* Track esterne (sx e dx) */
+.multi-range-slider .bar-left,
+.multi-range-slider .bar-right {
+  background: #27272a !important; /* colore neutro */
+  height: 6px !important;
+  box-shadow: none !important;
+}
+
+/* Pulsanti */
+.multi-range-slider .thumb::before {
+  box-shadow: none !important;
+}
+.custom-slider .thumb::after {
+  content: attr(data-value) "000";
+}

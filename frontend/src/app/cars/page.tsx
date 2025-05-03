@@ -124,11 +124,14 @@ const Cars = () => {
                             </p>
                         </div>
                     </div>
+                    <div className="absolute bottom-0 left-0 w-full h-30 z-30 bg-gradient-to-b from-transparent to-[#0b0a1a] pointer-events-none" />
                 </div>
                 <ScrollArrow />
             </main>
 
-            <CarsRichiesta />
+            <section id="compra" className="w-full min-h-[70vh] h-auto pt-20 pb-16 bg-[#0b0a1a] items-start justify-center overflow-hidden">
+                <CarsRichiesta />
+            </section>
 
             <VendiForm />
 
@@ -154,13 +157,11 @@ const Cars = () => {
                 </div>
             </section>
 
-            <section> 
-                {/* la collection in strapi è cars-gallery ma sto cesso la pluralizza da solo */}
-                <Gallery collectionName="cars-galleries" />
-            </section>
+            {/* la collection in strapi è cars-gallery ma sto cesso la pluralizza da solo */}
+            <Gallery collectionName="cars-galleries" />
 
             <Footer
-                bgColor="bg-[#070A11]"
+                bgColor="bg-[#0b0a1a]"
                 textColor="text-white/90"
                 fontClass="--font-poppins"
                 logo={<Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP CARS" width={170} height={50} />}

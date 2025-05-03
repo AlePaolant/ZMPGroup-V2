@@ -2,6 +2,12 @@ import EdiliziaForm from '@/components/EdiliziaForm';
 import Navbar from '@/components/Navbar-edilizia';
 import Image from 'next/image';
 import Gallery from "@/components/Gallery";
+import Footer from '@/components/Footer';
+import {
+    FaFacebook,
+    FaInstagram,
+    FaWhatsapp,
+} from "react-icons/fa";
 
 const Edilizia = () => {
     return (
@@ -76,6 +82,44 @@ const Edilizia = () => {
                 {/* Componente interattivo client-side */}
                 <EdiliziaForm />
             </div>
+
+
+
+            <Footer
+                bgColor="bg-[#0b0a1a]"
+                textColor="text-white/90"
+                fontClass="--font-poppins"
+                logo={<Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP CARS" width={170} height={50} />}
+                copyrightText="© 2025 ZMP Group. Tutti i diritti riservati."
+                navigationLinks={[
+                    { name: 'About', href: '#about' },
+                    { name: 'Compra', href: '#compra' },
+                    { name: 'Vendi', href: '#vendi' },
+                    { name: 'Gallery', href: '#gallery' },
+                ]}
+                contactInfo={{
+                    email: 'cars@zmpgroup.it',
+                    phone: '+39 123 456789',
+                    address: 'Via Roma 1, Roma',
+                }}
+                socialLinks={[
+                    {
+                        name: 'Facebook',
+                        href: 'https://facebook.com/miosito',
+                        icon: <FaFacebook className="w-5 h-5" />
+                    },
+                    {
+                        name: 'Instagram',
+                        href: 'https://instagram.com/miosito',
+                        icon: <FaInstagram className="w-5 h-5" />
+                    },
+                    {
+                        name: 'WhatsApp',
+                        href: 'https://wa.me/123456789',
+                        icon: <FaWhatsapp className="w-5 h-5" />
+                    }
+                ]}
+            />
         </>
     );
 };
