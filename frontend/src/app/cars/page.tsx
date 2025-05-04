@@ -12,6 +12,9 @@ import {
     FaCarSide,
     FaMobileAlt,
     FaTools,
+    FaPhone,
+    FaEnvelope,
+    FaMapMarkerAlt,
 } from "react-icons/fa";
 import VendiForm from '@/components/VendiForm';
 import CarsRichiesta from '@/components/Cars-richiesta';
@@ -44,6 +47,8 @@ const Cars = () => {
     return (
         <>
             <Navbar />
+
+            {/* Sezione MAIN */}
             <main className="w-full h-screen md:h-auto bg-black flex items-start justify-center overflow-hidden">
                 <div className="relative w-full h-full md:aspect-[16/9]">
                     {/* Sfondo */}
@@ -130,6 +135,7 @@ const Cars = () => {
                 <ScrollArrow />
             </main>
 
+            {/* Sezione About */}
             <section id="about" className="py-16 bg-[#0b0a1a]">
                 <div className="container mx-auto px-2">
                     <div className="max-w-3xl mx-auto text-center">
@@ -194,20 +200,22 @@ const Cars = () => {
                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                 </svg>
                                 Vieni a trovarci !
-                            </Link> 
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
-
+            {/* Sezione COMPRA */}
             <section id="compra" className="w-full min-h-[50vh] h-auto pt-16 pb-30 bg-[#0b0a1a] items-start justify-center overflow-hidden">
                 <CarsRichiesta />
             </section>
 
+            {/* Sezione VENDI */}
             <VendiForm />
 
-            <section id='perchenoi' className="w-full h-auto py-12 px-4 bg-gray-100">
+            {/* Sezione PERCHÈ NOI*/}
+            <section id="perchenoi" className="w-full h-auto py-12 px-4 bg-gray-100">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl font-bold text-center mb-12">
                         Perché scegliere noi
@@ -229,8 +237,72 @@ const Cars = () => {
                 </div>
             </section>
 
-            {/* la collection in strapi è cars-gallery ma sto cesso la pluralizza da solo */}
-            <Gallery collectionName="cars-galleries" />
+            {/* Sezione GALLERY - STRAPI PLURALIZZA, occhio alla collectionName */}
+            <section id="gallery" className="w-full h-auto py-4 px-4 bg-gray-100 text-center">
+                <h1 className="text-3xl font-bold py-2 mt-2 mb-4 text-black">Gallery</h1>
+                <Gallery collectionName="cars-galleries" />
+            </section>
+
+            {/* Sezione Contatti */}
+            <section className="py-20 bg-gray-100">
+                <div className="container mx-auto px-4">
+
+
+                    <div className="text-center mb-8">
+                        <h2 className="text-3xl md:text-3xl font-bold text-gray-900 mb-2">Dove trovarci</h2>
+                    </div>
+
+                    <div className="mb-16 rounded-xl overflow-hidden shadow-xl">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2402.989664258596!2d14.667907750962264!3d41.58717807510492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1746392949148!5m2!1sit!2sit" 
+                            width="100%" 
+                            height="250" 
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy" 
+                        ></iframe>
+                    </div>
+
+                    <div className="max-w-3xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
+                            <div className="space-y-4">
+                                <div className="flex justify-center md:justify-start items-center">
+                                    <FaMapMarkerAlt className="h-6 w-6 text-gray-700 mr-3" />
+                                    <div>
+                                        <h3 className="font-medium text-gray-900">Indirizzo</h3>
+                                        <a href="https://maps.app.goo.gl/D1t158fmXMTSKcbd7" target="_blank" className="text-gray-700">Contrada Colle delle Api 108 D<br />86100 Campobasso, Italia</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                <div className="flex justify-center md:justify-start items-center">
+                                    <FaPhone className="h-6 w-6 text-gray-700 mr-3" />
+                                    <div>
+                                        <h3 className="font-medium text-gray-900">Telefono</h3>
+                                        <a href="tel:+393277444827" className="text-gray-700">+39 327 7444827</a>
+                                    </div>
+                                </div>
+
+                                <div className="flex justify-center md:justify-start items-center">
+                                    <FaPhone className="h-6 w-6 text-gray-700 mr-3" />
+                                    <div>
+                                        <h3 className="font-medium text-gray-900">Telefono</h3>
+                                        <a href="tel:+393356456524" className="text-gray-700">+39 335 6456524</a>
+                                    </div>
+                                </div>
+
+                                <div className="flex justify-center md:justify-start items-center">
+                                    <FaEnvelope className="h-6 w-6 text-gray-700 mr-3" />
+                                    <div>
+                                        <h3 className="font-medium text-gray-900">Email</h3>
+                                        <a href="mailto:cars@zmpgroup.it" className="text-gray-700">cars@zmpgroup.it</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <Footer
                 bgColor="bg-[#0b0a1a]"
@@ -246,8 +318,9 @@ const Cars = () => {
                 ]}
                 contactInfo={{
                     email: 'cars@zmpgroup.it',
-                    phone: '+39 123 456789',
-                    address: 'Via Roma 1, Roma',
+                    phone: ['+39 327 7444827', '+39 335 6456524'],
+                    address: 'Contrada Colle delle Api 108 D, Campobasso',
+                    addressLink: 'https://maps.app.goo.gl/D1t158fmXMTSKcbd7',
                 }}
                 socialLinks={[
                     {

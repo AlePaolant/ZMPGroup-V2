@@ -404,39 +404,6 @@ export interface ApiCarsGalleryCarsGallery extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiEdiliziaCarouselEdiliziaCarousel
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'edilizia_carousels';
-  info: {
-    displayName: 'EDILIZIA-carousel';
-    pluralName: 'edilizia-carousels';
-    singularName: 'edilizia-carousel';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Data: Schema.Attribute.Date;
-    Descrizione: Schema.Attribute.Text;
-    Immagine: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::edilizia-carousel.edilizia-carousel'
-    > &
-      Schema.Attribute.Private;
-    Luogo: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    Titolo: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiEdiliziaGalleryEdiliziaGallery
   extends Struct.CollectionTypeSchema {
   collectionName: 'edilizia_galleries';
@@ -450,6 +417,8 @@ export interface ApiEdiliziaGalleryEdiliziaGallery
     draftAndPublish: true;
   };
   attributes: {
+    coverImage: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -461,7 +430,6 @@ export interface ApiEdiliziaGalleryEdiliziaGallery
       'api::edilizia-gallery.edilizia-gallery'
     > &
       Schema.Attribute.Private;
-    location: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -982,7 +950,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::cars-gallery.cars-gallery': ApiCarsGalleryCarsGallery;
-      'api::edilizia-carousel.edilizia-carousel': ApiEdiliziaCarouselEdiliziaCarousel;
       'api::edilizia-gallery.edilizia-gallery': ApiEdiliziaGalleryEdiliziaGallery;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

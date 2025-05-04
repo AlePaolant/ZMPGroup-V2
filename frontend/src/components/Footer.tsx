@@ -9,8 +9,9 @@ type FooterProps = {
     navigationLinks?: { name: string; href: string }[];
     contactInfo?: {
         email?: string;
-        phone?: string;
+        phone?: string | string[];
         address?: string;
+        addressLink?: string;
     };
     socialLinks?: { name: string; href: string; icon: React.ReactNode }[]; // Modificato per accettare ReactNode
     bgColor?: string;
@@ -46,7 +47,7 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
     return (
         <footer className={`${bgColor} ${textColor} w-full py-12`}
-            style={{ fontFamily: `var(${fontClass}),serif`}}>
+            style={{ fontFamily: `var(${fontClass}),serif` }}>
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                     {/* Colonna Logo e Copyright */}
@@ -85,18 +86,41 @@ const Footer: React.FC<FooterProps> = ({
                                     </a>
                                 </li>
                             )}
-                            {contactInfo.phone && (
-                                <li className="flex items-center">
-                                    <span className="mr-2">📞</span>
-                                    <a href={`tel:${contactInfo.phone}`} className="hover:text-white transition-colors">
-                                        {contactInfo.phone}
-                                    </a>
-                                </li>
-                            )}
+                            {contactInfo.phone &&
+                                (Array.isArray(contactInfo.phone)
+                                    ? contactInfo.phone.map((phone, index) => (
+                                        <li key={index} className="flex items-center">
+                                            <span className="mr-2">📞</span>
+                                            <a href={`tel:${phone}`} className="hover:text-white transition-colors">
+                                                {phone}
+                                            </a>
+                                        </li>
+                                    ))
+                                    : (
+                                        <li className="flex items-center">
+                                            <span className="mr-2">📞</span>
+                                            <a href={`tel:${contactInfo.phone}`} className="hover:text-white transition-colors">
+                                                {contactInfo.phone}
+                                            </a>
+                                        </li>
+                                    )
+                                )
+                            }
                             {contactInfo.address && (
                                 <li className="flex items-center">
                                     <span className="mr-2">📍</span>
-                                    <span>{contactInfo.address}</span>
+                                    {contactInfo.addressLink ? (
+                                        <a
+                                            href={contactInfo.addressLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:text-white transition-colors"
+                                        >
+                                            {contactInfo.address}
+                                        </a>
+                                    ) : (
+                                        <span>{contactInfo.address}</span>
+                                    )}
                                 </li>
                             )}
                         </ul>
@@ -112,7 +136,7 @@ const Footer: React.FC<FooterProps> = ({
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-transparent border border-white border-1 text-white hover:bg-white hover:border-[#070A11] hover:text-[#070A11] rounded-full w-10 h-10 flex items-center justify-center transition-all"                                    aria-label={social.name}
+                                    className="bg-transparent border border-white border-1 text-white hover:bg-white hover:border-[#070A11] hover:text-[#070A11] rounded-full w-10 h-10 flex items-center justify-center transition-all" aria-label={social.name}
                                     title={social.name}
                                 >
                                     {social.icon}

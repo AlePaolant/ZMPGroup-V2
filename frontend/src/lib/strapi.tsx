@@ -7,6 +7,7 @@ export interface GalleryItem {
   id: number;
   title: string;
   images: { url: string }[];
+  coverImage?: { url: string };
 }
 
 export const fetchGalleryItems = async (collection: string): Promise<GalleryItem[]> => {
@@ -15,22 +16,25 @@ export const fetchGalleryItems = async (collection: string): Promise<GalleryItem
 
     const items = Array.isArray(data.data) ? data.data : [data.data];
 
-    console.log("Strapi response:", JSON.stringify(data, null, 2));
-
     return items.map((item: any) => {
       const attributes = item.attributes || item;
-    
+
       const images = (attributes.images || []).map((img: any) => {
         const imageUrl = img.formats?.small?.url || img.url;
         return {
           url: `${STRAPI_MEDIA_URL}${imageUrl}`
         };
       });
-    
+
+      const cover = attributes.coverImage;
+      const coverImageUrl = cover?.formats?.small?.url || cover?.url;
+      const coverImage = coverImageUrl ? { url: `${STRAPI_MEDIA_URL}${coverImageUrl}` } : undefined;
+
       return {
         id: item.id,
         title: attributes.title || "Senza titolo",
-        images
+        images,
+        coverImage
       };
     }).reverse();
 

@@ -25,8 +25,14 @@
         "files"
       ]
     },
-    "location": {
-      "type": "string"
+    "coverImage": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

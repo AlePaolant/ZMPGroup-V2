@@ -130,9 +130,9 @@ export default function VendiForm() {
     };
 
     return (
-        <div id='vendi' className="h-auto bg-[#f3f4f6] text-black">
+        <div id='vendi' className="h-auto bg-gray-300 text-black">
             {/* Sezione iniziale */}
-            <div className={`bg-[#f3f4f6] text-black py-40 px-4 text-center transition-all duration-500 ease-in-out ${showForm ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'}`}>
+            <div className={`bg-gray-300 text-black py-40 px-4 text-center transition-all duration-500 ease-in-out ${showForm ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'}`}>
                 <div className="max-w-3xl mx-auto">
                     <h1 className="text-4xl font-bold mb-6">Vendi la tua auto con noi</h1>
                     <p className="text-xl mb-8">

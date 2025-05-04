@@ -74,8 +74,9 @@ const Edilizia = () => {
                 <p>Seleziona un modulo per inviare un messaggio:</p>
                 <p className='cursor-pointer !important'>pointer</p>
             </div>
-            <div className="flex flex-col items-center">
-                <h1 className="text-3xl font-bold my-6">I nostri cantieri</h1>
+            <div className="bg-[#1e1e1e] flex flex-col items-center bg">
+                <h1 className="text-3xl font-bold py-2 mt-16 text-white">I nostri cantieri</h1>
+                <p className="text-lg text-gray-200 mt-3 mb-6">Quì troverai una serie di cantieri di cui ci siamo occupati negli scorsi anni.</p>
                 <Gallery collectionName="edilizia-galleries" />
             </div>
             <div>
@@ -86,7 +87,7 @@ const Edilizia = () => {
 
 
             <Footer
-                bgColor="bg-[#0b0a1a]"
+                bgColor="bg-[#111111]"
                 textColor="text-white/90"
                 fontClass="--font-poppins"
                 logo={<Image src="/images/logo-zmp-group-w-V2.png" alt="Logo ZMP GROUP" width={170} height={50} />}
