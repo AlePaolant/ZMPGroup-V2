@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, FormEvent } from "react";
 import { FaRegClipboard, FaRegHandshake, FaToolbox, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
 import { JSX } from "react";
@@ -152,16 +152,21 @@ const ModuloGenerico = ({ moduloType, titolo, campi }: ModuloGenericoProps) => {
 };
 
 const Contatti = () => (
-  <div className="space-y-4">
-    <h2 className="text-2xl font-bold">Preferisci parlare a voce?</h2>
-    <p className="text-lg">Chiama dal Lunedì al Venerdì 9:00-13:00 | 14:00-17:00</p>
-    <div className="flex items-center">
-      <FaPhoneAlt className="mr-2" />
-      <span>123-456-789</span>
+  <div className="mt-[-15%] text-center">
+    <h2 className="text-white text-2xl font-bold mb-6">Preferisci parlare a voce?</h2>
+    <p className="text-gray-200 text-lg">Chiama dal Lunedì al Venerdì</p>
+    <p className="text-gray-300 text-lg">9:00-13:00 | 14:00-17:00</p>
+    <div className="flex items-center mt-8">
+      <FaPhoneAlt className="mr-2 text-yellow-400" />
+      <a href="tel:+393277444827" className="text-gray-200 text-gray-200 hover:text-yellow-400">+39 327 7444827</a>
     </div>
-    <div className="flex items-center">
-      <FaEnvelope className="mr-2" />
-      <span>info@example.com</span>
+    <div className="flex items-center mt-3">
+      <FaPhoneAlt className="mr-2 text-yellow-400" />
+      <a href="tel:+393356456524" className="text-gray-200 text-gray-200 hover:text-yellow-400">+39 335 6456524</a>
+    </div>
+    <div className="flex items-center mt-3">
+      <FaEnvelope className="mr-2 text-yellow-400" />
+      <a href="mailto:edilizia@zmpgroup.it" className="text-gray-200 hover:text-yellow-400">edilizia@zmpgroup.it</a>
     </div>
   </div>
 );
@@ -170,7 +175,7 @@ const EdiliziaForm = () => {
   const [selectedButton, setSelectedButton] = useState(1);
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-[#1a1a1a]">
+    <div id="servizi" className="flex flex-col md:flex-row h-screen bg-[#1a1a1a]">
       {/* Left - Buttons */}
       <div className="w-full md:w-1/2 p-4 flex flex-col gap-7 justify-center items-center">
         <div className="w-full flex flex-row gap-7 justify-center items-center">

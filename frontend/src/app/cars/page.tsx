@@ -185,16 +185,16 @@ const Cars = () => {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="#compra" className="bg-violet-600 hover:bg-violet-900 text-white font-medium py-3 px-6 rounded-lg text-center transition">
+                            <Link href="#compra" className="bg-violet-600 hover:bg-violet-900 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 cursor-pointer">
                                 Compra la tua nuova auto
                             </Link>
-                            <Link href="#vendi" className="bg-[#1a1933] hover:bg-violet-900 text-white font-medium py-3 px-6 rounded-lg border-2 border-violet-600 text-center transition">
+                            <Link href="#vendi" className="bg-[#1a1933] hover:bg-violet-900 text-white font-bold py-3 px-6 rounded-lg border-2 border-violet-600 text-center transition-all duration-300 hover:scale-105 cursor-pointer">
                                 Vendi la tua auto usata
                             </Link>
                             <Link
                                 href="https://maps.app.goo.gl/D1t158fmXMTSKcbd7"
                                 target="_blank"
-                                className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-violet-300 font-medium py-3 px-6 rounded-lg text-center transition"
+                                className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-violet-300 font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 hover:scale-105 cursor-pointer"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-violet-300" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
@@ -269,7 +269,7 @@ const Cars = () => {
                                     <FaMapMarkerAlt className="h-6 w-6 text-gray-700 mr-3" />
                                     <div>
                                         <h3 className="font-medium text-gray-900">Indirizzo</h3>
-                                        <a href="https://maps.app.goo.gl/D1t158fmXMTSKcbd7" target="_blank" className="text-gray-700">Contrada Colle delle Api 108 D<br />86100 Campobasso, Italia</a>
+                                        <a href="https://maps.app.goo.gl/D1t158fmXMTSKcbd7" target="_blank" className="text-gray-700 hover:text-violet-800">Contrada Colle delle Api 108 D<br />86100 Campobasso, Italia</a>
                                     </div>
                                 </div>
                             </div>
@@ -279,7 +279,7 @@ const Cars = () => {
                                     <FaPhone className="h-6 w-6 text-gray-700 mr-3" />
                                     <div>
                                         <h3 className="font-medium text-gray-900">Telefono</h3>
-                                        <a href="tel:+393277444827" className="text-gray-700">+39 327 7444827</a>
+                                        <a href="tel:+393277444827" className="text-gray-700 hover:text-violet-800">+39 327 7444827</a>
                                     </div>
                                 </div>
 
@@ -287,7 +287,7 @@ const Cars = () => {
                                     <FaPhone className="h-6 w-6 text-gray-700 mr-3" />
                                     <div>
                                         <h3 className="font-medium text-gray-900">Telefono</h3>
-                                        <a href="tel:+393356456524" className="text-gray-700">+39 335 6456524</a>
+                                        <a href="tel:+393356456524" className="text-gray-700 hover:text-violet-800">+39 335 6456524</a>
                                     </div>
                                 </div>
 
@@ -295,7 +295,7 @@ const Cars = () => {
                                     <FaEnvelope className="h-6 w-6 text-gray-700 mr-3" />
                                     <div>
                                         <h3 className="font-medium text-gray-900">Email</h3>
-                                        <a href="mailto:cars@zmpgroup.it" className="text-gray-700">cars@zmpgroup.it</a>
+                                        <a href="mailto:cars@zmpgroup.it" className="text-gray-700 hover:text-violet-800">cars@zmpgroup.it</a>
                                     </div>
                                 </div>
                             </div>

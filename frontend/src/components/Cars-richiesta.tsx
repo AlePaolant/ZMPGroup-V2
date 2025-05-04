@@ -86,7 +86,7 @@ export default function WizardRichiestaAuto() {
                 <div className="text-center space-y-6">
                     <h2 className="text-4xl font-bold">Richiedi la tua nuova auto</h2>
                     <p className="text-gray-300">Compila il modulo in pochi passaggi per ricevere un preventivo personalizzato.</p>
-                    <button onClick={nextStep} className="bg-violet-600 hover:bg-violet-700 px-6 py-3 rounded">
+                    <button onClick={nextStep} className="bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 cursor-pointer">
                         Inizia
                     </button>
                 </div>

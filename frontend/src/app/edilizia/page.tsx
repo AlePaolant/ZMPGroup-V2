@@ -36,6 +36,8 @@ const Edilizia = () => {
                     hover: "hover:text-yellow-600",
                 }}
             />
+
+            {/* Sezione MAIN */}
             <main>
                 <div className="bg-[#1a1a1a] text-white p-8 md:p-16 mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -69,22 +71,49 @@ const Edilizia = () => {
                     </div>
                 </div>
             </main>
-            <div>
-                <h1>Benvenuto sulla nostra pagina di contatto!</h1>
-                <p>Seleziona un modulo per inviare un messaggio:</p>
-                <p className='cursor-pointer !important'>pointer</p>
-            </div>
-            <div className="bg-[#1e1e1e] flex flex-col items-center bg">
+
+            {/* Sezione CHI SIAMO */}
+            <section id="chisiamo" className="bg-[#1e1e1e] py-20 px-6 sm:px-10 lg:px-20">
+                <div className="max-w-5xl mx-auto text-center">
+                    <h2 className="text-4xl font-extrabold text-white mb-6">
+                        Costruiamo il Futuro, Insieme
+                    </h2>
+                    <p className="text-lg text-gray-300 mb-4">
+                        La nostra impresa edile nasce dalla passione per il costruire <strong>bene</strong>. <br /> Da oltre due decenni trasformiamo idee in spazi concreti, funzionali e duraturi.
+                    </p>
+                    <p className="text-lg text-gray-300 mb-4">
+                        Offriamo soluzioni personalizzate per privati, aziende ed enti pubblici, con attenzione ai dettagli,<br /> rispetto dei tempi e materiali di alta qualità.
+                    </p>
+                    <p className="text-lg text-gray-300 mb-4">
+                        Siamo sempre aperti a nuove sinergie: collaboriamo con architetti, ingegneri, artigiani e fornitori<br /> per dare vita a progetti ambiziosi.
+                    </p>
+                    <p className="text-lg text-gray-300 mb-8">
+                        Vuoi lavorare con noi, chiederci un preventivo o proporci una collaborazione? Saremo felici di ascoltarti.
+                    </p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <a
+                            href="#servizi"
+                            className="inline-block rounded-xl bg-blue-600 px-6 py-3 text-white text-base font-medium hover:bg-blue-700 transition"
+                        >
+                            Richiedi un Preventivo
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            {/* Sezione Gallery */}
+            <section className="bg-[#1e1e1e] flex flex-col items-center bg">
                 <h1 className="text-3xl font-bold py-2 mt-16 text-white">I nostri cantieri</h1>
                 <p className="text-lg text-gray-200 mt-3 mb-6">Quì troverai una serie di cantieri di cui ci siamo occupati negli scorsi anni.</p>
                 <Gallery collectionName="edilizia-galleries" />
-            </div>
-            <div>
-                {/* Componente interattivo client-side */}
-                <EdiliziaForm />
-            </div>
+            </section>
 
 
+            {/* Sezione MODULI PREVENTIVI */}
+            <EdiliziaForm />
+
+            {/* Sezione CONTATTI */}
+            {/* Sezione CERTIFICAZIONI */}
 
             <Footer
                 bgColor="bg-[#111111]"
@@ -99,9 +128,10 @@ const Edilizia = () => {
                     { name: 'Contatti', href: '#contatti' },
                 ]}
                 contactInfo={{
-                    email: 'edilizia@zmpgroup.it',
-                    phone: '+39 123 456789',
-                    address: 'Via Roma 1, Roma',
+                    email: 'cars@zmpgroup.it',
+                    phone: ['+39 327 7444827', '+39 335 6456524'],
+                    address: 'Contrada Colle delle Api 108 D, Campobasso',
+                    addressLink: 'https://maps.app.goo.gl/D1t158fmXMTSKcbd7',
                 }}
                 socialLinks={[
                     {
