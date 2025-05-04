@@ -24,6 +24,15 @@
         "images",
         "files"
       ]
+    },
+    "coverImage": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

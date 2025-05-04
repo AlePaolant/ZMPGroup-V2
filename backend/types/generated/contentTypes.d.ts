@@ -381,6 +381,8 @@ export interface ApiCarsGalleryCarsGallery extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    coverImage: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

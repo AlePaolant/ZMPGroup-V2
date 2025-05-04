@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar-cars';
 import Image from 'next/image';
+import Link from 'next/link';
 import ScrollArrow from '@/components/ScrollArrow';
 import Footer from '@/components/Footer';
 import Gallery from '@/components/Gallery';
@@ -129,13 +130,84 @@ const Cars = () => {
                 <ScrollArrow />
             </main>
 
-            <section id="compra" className="w-full min-h-[70vh] h-auto pt-20 pb-16 bg-[#0b0a1a] items-start justify-center overflow-hidden">
+            <section id="about" className="py-16 bg-[#0b0a1a]">
+                <div className="container mx-auto px-2">
+                    <div className="max-w-3xl mx-auto text-center">
+                        <h2 className="text-3xl font-bold text-white mb-6">Auto su misura per te</h2>
+
+                        <div className="space-y-6 text-gray-300 mb-10 text-lg">
+                            <p>
+                                Nati nel 2024 come realtà innovativa nel mondo dell'auto, combiniamo la tradizione del buon usato con tecnologie
+                                avanzate di selezione veicoli, per proporti solo auto che corrispondono davvero alle tue esigenze.
+                            </p>
+                            <p>
+                                Che cerchi un'auto nuova di zecca o un usato premium con garanzia, abbiamo creato un processo semplice e trasparente:
+                                inserisci l'auto dei tuoi sogni nel nostro modulo di ricerca e lascia fare a noi il lavoro pesante.
+                            </p>
+                            <p>
+                                <strong>Acquistiamo anche la tua auto!</strong> Valutazioni rapide e competitive, senza sorprese.
+                            </p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-6 mb-12">
+                            <div className="bg-[#1a1933] p-6 rounded-lg border border-[#1a1933]">
+                                <h3 className="font-bold text-lg mb-3 text-violet-300">Selezione Smart</h3>
+                                <p className="text-gray-300">
+                                    Usiamo sistemi informatizzati per analizzare storia, manutenzione e condizioni di ogni veicolo,
+                                    eliminando il rischio di sorprese.
+                                </p>
+                            </div>
+                            <div className="bg-[#1a1933] p-6 rounded-lg border border-[#1a1933]">
+                                <h3 className="font-bold text-lg mb-3 text-violet-300">Prezzo Giusto</h3>
+                                <p className="text-gray-300">
+                                    Analisi di mercato in tempo reale per offrirti sempre il miglior rapporto qualità-prezzo,
+                                    sia in acquisto che in vendita.
+                                </p>
+                            </div>
+                            <div className="bg-[#1a1933] p-6 rounded-lg border border-[#1a1933]">
+                                <h3 className="font-bold text-lg mb-3 text-violet-300">Garanzia Reale</h3>
+                                <p className="text-gray-300">
+                                    Coperture estese su tutti i veicoli, con interventi rapidi presso la nostra rete di officine certificate.
+                                </p>
+                            </div>
+                            <div className="bg-[#1a1933] p-6 rounded-lg border border-[#1a1933]">
+                                <h3 className="font-bold text-lg mb-3 text-violet-300">Trade-in Digitale</h3>
+                                <p className="text-gray-300">
+                                    Valutazione online della tua auto in 15 minuti, con ritiro a domicilio e pagamento immediato.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link href="#compra" className="bg-violet-600 hover:bg-violet-900 text-white font-medium py-3 px-6 rounded-lg text-center transition">
+                                Compra la tua nuova auto
+                            </Link>
+                            <Link href="#vendi" className="bg-[#1a1933] hover:bg-violet-900 text-white font-medium py-3 px-6 rounded-lg border-2 border-violet-600 text-center transition">
+                                Vendi la tua auto usata
+                            </Link>
+                            <Link
+                                href="https://maps.google.com/?q=Indirizzo+Concessionario"
+                                target="_blank"
+                                className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-violet-300 font-medium py-3 px-6 rounded-lg text-center transition"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-violet-300" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                                </svg>
+                                Vieni a trovarci !
+                            </Link> 
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="compra" className="w-full min-h-[50vh] h-auto pt-16 pb-30 bg-[#0b0a1a] items-start justify-center overflow-hidden">
                 <CarsRichiesta />
             </section>
 
             <VendiForm />
 
-            <section id='perchenoi' className="w-full h-auto py-16 px-4 bg-gray-100">
+            <section id='perchenoi' className="w-full h-auto py-12 px-4 bg-gray-100">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl font-bold text-center mb-12">
                         Perché scegliere noi

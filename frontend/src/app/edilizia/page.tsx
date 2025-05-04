@@ -89,16 +89,16 @@ const Edilizia = () => {
                 bgColor="bg-[#0b0a1a]"
                 textColor="text-white/90"
                 fontClass="--font-poppins"
-                logo={<Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP CARS" width={170} height={50} />}
+                logo={<Image src="/images/logo-zmp-group-w-V2.png" alt="Logo ZMP GROUP" width={170} height={50} />}
                 copyrightText="© 2025 ZMP Group. Tutti i diritti riservati."
                 navigationLinks={[
-                    { name: 'About', href: '#about' },
-                    { name: 'Compra', href: '#compra' },
-                    { name: 'Vendi', href: '#vendi' },
-                    { name: 'Gallery', href: '#gallery' },
+                    { name: 'Chi siamo', href: '#chisiamo' },
+                    { name: 'Servizi', href: '#servizi' },
+                    { name: 'Certificazioni', href: '#certificazioni' },
+                    { name: 'Contatti', href: '#contatti' },
                 ]}
                 contactInfo={{
-                    email: 'cars@zmpgroup.it',
+                    email: 'edilizia@zmpgroup.it',
                     phone: '+39 123 456789',
                     address: 'Via Roma 1, Roma',
                 }}

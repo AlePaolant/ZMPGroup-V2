@@ -130,9 +130,9 @@ export default function VendiForm() {
     };
 
     return (
-        <div id='vendi' className="h-auto bg-[linear-gradient(180deg,#0b0a1a_70%,#f3f4f6)] text-white">
+        <div id='vendi' className="h-auto bg-[#f3f4f6] text-black">
             {/* Sezione iniziale */}
-            <div className={`bg-[linear-gradient(180deg,#0b0a1a_90%,#f3f4f6)] text-white py-40 px-4 text-center transition-all duration-500 ease-in-out ${showForm ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'}`}>
+            <div className={`bg-[#f3f4f6] text-black py-40 px-4 text-center transition-all duration-500 ease-in-out ${showForm ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'}`}>
                 <div className="max-w-3xl mx-auto">
                     <h1 className="text-4xl font-bold mb-6">Vendi la tua auto con noi</h1>
                     <p className="text-xl mb-8">
@@ -157,7 +157,7 @@ export default function VendiForm() {
                         <div className="bg-transparent">
                             <button
                                 onClick={() => setShowForm(false)}
-                                className="mb-4 flex items-center text-violet-500 hover:text-violet-600 transition-colors"
+                                className="mb-4 flex items-center text-violet-800 hover:text-violet-900 transition-colors"
                             >
                                 <ArrowRight className="rotate-180 mr-1" size={18} />
                                 Torna indietro
@@ -193,14 +193,14 @@ export default function VendiForm() {
                         <div className="w-[45%] bg-transparent text-white">
                             <button
                                 onClick={() => setShowForm(false)}
-                                className="mb-6 flex items-center text-violet-400 hover:text-violet-600 transition-colors cursor-pointer"
+                                className="mb-6 flex items-center text-violet-600 hover:text-violet-900 transition-colors cursor-pointer"
                             >
                                 <ArrowRight className="rotate-180 mr-1" size={18} />
                                 Torna indietro
                             </button>
 
                             <div className="space-y-6">
-                                <div className="p-4 rounded-lg bg-red-900/30 border border-red-500/30 text-red-200">
+                                <div className="p-4 rounded-lg bg-red-900/90 border border-red-500/30 text-red-100 shadow-lg shadow-gray-500">
                                     <h3 className="font-semibold text-sm mb-1">REQUISITI FOTO</h3>
                                     <ul className="text-sm space-y-1">
                                         <li>• Massimo 6 foto</li>
@@ -209,7 +209,7 @@ export default function VendiForm() {
                                     </ul>
                                 </div>
 
-                                <div className="p-4 rounded-lg bg-yellow-900/20 border border-yellow-500/20 text-yellow-200">
+                                <div className="p-4 rounded-lg bg-yellow-700/90 border border-yellow-500/20 text-yellow-100 shadow-lg shadow-gray-500">
                                     <h3 className="font-semibold text-sm mb-1">PROCESSO</h3>
                                     <ul className="text-sm space-y-1">
                                         <li>• Valutazione veloce via email</li>
@@ -220,7 +220,7 @@ export default function VendiForm() {
                         </div>
 
                         {/* Form - con card bianca */}
-                        <div className="w-[55%] bg-gray-900 text-white p-8 rounded-xl shadow-2xl">
+                        <div className="w-[55%] bg-gray-900 text-white p-8 rounded-xl shadow-2xl shadow-gray-700">
                             <FormContent
                                 {...{ formData, handleInputChange, files, handleRemoveFile, dragActive, handleDragOver, handleDragLeave, handleDrop, handleFileChange, fileError, recaptchaToken, setRecaptchaToken, handleSubmit }}
                             />
@@ -375,7 +375,7 @@ function FormContent({
 
             <div className="pt-2">
                 <ReCAPTCHA
-                    sitekey="6LcgifMqAAAAAK0l8z8JueowlHwmsMFWnHpjXiw8"
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                     onChange={(token: string | null) => setRecaptchaToken(token)}
                 />
             </div>
