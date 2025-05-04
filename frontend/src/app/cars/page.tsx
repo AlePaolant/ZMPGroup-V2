@@ -192,7 +192,7 @@ const Cars = () => {
                                 Vendi la tua auto usata
                             </Link>
                             <Link
-                                href="https://maps.google.com/?q=Indirizzo+Concessionario"
+                                href="https://maps.app.goo.gl/D1t158fmXMTSKcbd7"
                                 target="_blank"
                                 className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-violet-300 font-medium py-3 px-6 rounded-lg text-center transition"
                             >
