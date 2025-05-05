@@ -79,7 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <Link
               key={index}
               href={link.href}
-              className={`text-lg font-medium ${colors.text} ${colors.hover} cursor-pointer`} // Aggiungi il cursore pointer ai link
+              className={`text-lg font-medium ${colors.text} ${colors.hover} cursor-pointer`} 
             >
               {link.name}
             </Link>
@@ -90,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <Link
               key={index}
               href={link.href}
-              className={`text-lg font-medium ${colors.text} ${colors.hover} cursor-pointer`} // Aggiungi il cursore pointer ai link
+              className={`text-lg font-medium ${colors.text} ${colors.hover} cursor-pointer`} 
             >
               {link.name}
             </Link>

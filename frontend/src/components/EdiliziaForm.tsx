@@ -41,7 +41,7 @@ interface ClickableDivProps {
 const ClickableDiv = ({ onClick, title, description, icon, active }: ClickableDivProps) => (
   <div
     onClick={onClick}
-    className={`w-70 h-65 flex flex-col items-center justify-center rounded-3xl cursor-pointer ${active ? "bg-black text-white shadow-none" : "bg-gray-200 shadow-xl"
+    className={`w-70 h-65 flex flex-col items-center justify-center rounded-3xl cursor-pointer ${active ? "bg-black text-yellow-300 shadow-none" : "bg-gray-200 shadow-xl"
       }`}
   >
     <div className="text-3xl">{icon}</div>
@@ -94,8 +94,9 @@ const ModuloGenerico = ({ moduloType, titolo, campi }: ModuloGenericoProps) => {
   };
 
   return (
-    <div className="p-6 mr-4 bg-white rounded-3xl space-y-6 shadow-xl">
-      <h2 className="text-2xl font-bold mb-4">{titolo}</h2>
+    //MODULO GENERICO
+    <div className="p-6 mr-4 bg-[#444444] rounded-3xl space-y-6 shadow-xl">
+      <h2 className="text-2xl font-bold mb-4 text-white">{titolo}</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input type="hidden" name="moduloType" value={moduloType} />
 
@@ -105,16 +106,16 @@ const ModuloGenerico = ({ moduloType, titolo, campi }: ModuloGenericoProps) => {
               {campo === "descrizione" ? (
                 <textarea
                   name={campo}
-                  className="p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder={fieldPlaceholders[campo] || campo.charAt(0).toUpperCase() + campo.slice(1)}
+                  className="p-3 w-full bg-[#1a1a1a] text-white rounded-md placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  placeholder={fieldPlaceholders[campo]}
                   required
                 />
               ) : (
                 <input
                   type={campo === "email" ? "email" : "text"}
                   name={campo}
-                  className="p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder={fieldPlaceholders[campo] || campo.charAt(0).toUpperCase() + campo.slice(1)}
+                  className="p-3 w-full bg-[#1a1a1a] text-white rounded-md placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  placeholder={fieldPlaceholders[campo]}
                   pattern={fieldPatterns[campo] || undefined}
                   required
                 />
@@ -122,26 +123,29 @@ const ModuloGenerico = ({ moduloType, titolo, campi }: ModuloGenericoProps) => {
             </div>
           ))}
         </div>
+
         <div className="flex items-center gap-2">
           <input
             type="checkbox"
             name="consenso"
             required
-            className="mt-1"
+            className="mt-1 accent-yellow-400"
           />
-          <label>
+          <label className="text-white text-sm">
             Acconsento al trattamento dei miei dati personali, come indicato nell'informativa sulla privacy.
           </label>
         </div>
+
         <ReCAPTCHA
-          sitekey="6LcgifMqAAAAAK0l8z8JueowlHwmsMFWnHpjXiw8"
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
           onChange={(token: string | null) => setRecaptchaToken(token)}
         />
         <input type="hidden" name="recaptchaToken" value={recaptchaToken || ""} />
+
         <div className="text-center">
           <button
             type="submit"
-            className="w-full py-3 mt-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full py-3 mt-4 bg-yellow-400 text-[#1a1a1a] font-bold rounded-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-300"
           >
             {isLoading ? "Invio in corso..." : "Invia"}
           </button>
@@ -175,10 +179,10 @@ const EdiliziaForm = () => {
   const [selectedButton, setSelectedButton] = useState(1);
 
   return (
-    <div id="servizi" className="flex flex-col md:flex-row h-screen bg-[#1a1a1a]">
+    <div className="flex flex-col md:flex-row h-screen bg-[#1a1a1a]">
       {/* Left - Buttons */}
-      <div className="w-full md:w-1/2 p-4 flex flex-col gap-7 justify-center items-center">
-        <div className="w-full flex flex-row gap-7 justify-center items-center">
+      <div className="w-full md:w-1/2 p-4 flex flex-col gap-6 justify-center items-center">
+        <div className="w-full flex flex-row gap-6 justify-center items-center">
           <ClickableDiv
             onClick={() => setSelectedButton(1)}
             title="Hai bisogno di un preventivo?"
@@ -194,7 +198,7 @@ const EdiliziaForm = () => {
             active={selectedButton === 2}
           />
         </div>
-        <div className="w-full flex flex-row gap-7 justify-center items-center">
+        <div className="w-full flex flex-row gap-6 justify-center items-center">
           <ClickableDiv
             onClick={() => setSelectedButton(3)}
             title="Cerchi lavoro nel settore edile?"
