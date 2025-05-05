@@ -118,15 +118,15 @@ const Cars = () => {
                                             lg:text-lg
                                             xl:text-xl
                                             2xl:text-3xl">
-                                <span className="block font-bold mb-4
+                                <span className="block font-bold mb-24 md:mb-4
                                             text-md
                                             md:text-lg
                                             lg:text-xl
                                             xl:text-2xl
                                             2xl:text-4xl">
-                                    Cerchi la tua prossima auto? Oppure vuoi vendere la tua?
+                                    Cerchi la tua prossima auto? <br className="block md:hidden" /> Oppure vuoi vendere la tua?
                                 </span>
-                                Siamo qui per questo. Un concessionario giovane, online e trasparente: <br /> ti seguiamo passo dopo passo, senza stress, anche da smartphone.
+                                <span className="hidden md:block">Siamo qui per questo. Un concessionario giovane, online e trasparente: <br /> ti seguiamo passo dopo passo, senza stress, anche da smartphone.</span>
                             </p>
                         </div>
                     </div>
@@ -141,13 +141,13 @@ const Cars = () => {
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-3xl font-bold text-white mb-6">Auto su misura per te</h2>
 
-                        <div className="space-y-6 text-gray-300 mb-10 text-lg">
+                        <div className="space-y-6 text-gray-300 mb-10 text-lg px-4">
                             <p>
                                 Nati nel 2024 come realtà innovativa nel mondo dell'auto, combiniamo la tradizione del buon usato con tecnologie
                                 avanzate di selezione veicoli, per proporti solo auto che corrispondono davvero alle tue esigenze.
                             </p>
                             <p>
-                                Che cerchi un'auto nuova di zecca o un usato premium con garanzia, abbiamo creato un processo semplice e trasparente:
+                                Se cerchi un'auto nuova di zecca o un usato premium con garanzia, abbiamo creato un processo semplice e trasparente:
                                 inserisci l'auto dei tuoi sogni nel nostro modulo di ricerca e lascia fare a noi il lavoro pesante.
                             </p>
                             <p>
@@ -155,7 +155,7 @@ const Cars = () => {
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-6 mb-12">
+                        <div className="hidden md:blockgrid md:grid-cols-2 gap-6 mb-12">
                             <div className="bg-[#1a1933] p-6 rounded-lg border border-[#1a1933]">
                                 <h3 className="font-bold text-lg mb-3 text-violet-300">Selezione Smart</h3>
                                 <p className="text-gray-300">
@@ -240,6 +240,8 @@ const Cars = () => {
             {/* Sezione GALLERY - STRAPI PLURALIZZA, occhio alla collectionName */}
             <section id="gallery" className="w-full h-auto py-4 px-4 bg-gray-100 text-center">
                 <h1 className="text-3xl font-bold py-2 mt-2 mb-4 text-black">Gallery</h1>
+                <p className="text-gray-800 px-8 mb-6 text-md pb-2">
+                    Esplora le nostre gallery: seleziona una copertina per accedere a tutte le immagini.</p>
                 <Gallery collectionName="cars-galleries" />
             </section>
 
@@ -309,7 +311,7 @@ const Cars = () => {
                 textColor="text-white/90"
                 fontClass="--font-poppins"
                 logo={<Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP CARS" width={170} height={50} />}
-                copyrightText="© 2025 ZMP Group. Tutti i diritti riservati."
+                copyrightText="© 2025 ZMP Cars Group. Tutti i diritti riservati."
                 navigationLinks={[
                     { name: 'About', href: '#about' },
                     { name: 'Compra', href: '#compra' },

@@ -67,14 +67,14 @@ const Edilizia = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         {/* Left Section */}
                         <div>
-                            <h1 className="mt-30 text-5xl font-bold leading-tight">
+                            <h1 className=" mt-14 md:mt-30 text-5xl font-bold leading-tight">
                                 Il tuo <span className="text-yellow-400">Progetto</span> <br /> la nostra <span className="text-yellow-400">Passione</span>
                             </h1>
                             <p className="mt-4 text-gray-300 text-lg">
                                 Realizziamo progetti edili su misura: chiedi un preventivo, collabora con noi o entra nel team. Costruiamo insieme il futuro.
                             </p>
                             <div className="mt-6 flex gap-4">
-                                <a href="#servizi" className="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold shadow-md hover:bg-yellow-300 transition cursor-pointer block w-fit">
+                                <a href="#servizi" className="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold shadow-md hover:bg-yellow-300 transition cursor-pointer block w-1/2 md:w-fit text-center md:text-start">
                                     Richiedi un preventivo
                                 </a>
                                 <a href="#gallery" className="text-yellow-400 font-semibold flex items-center gap-2 hover:underline cursor-pointer">
@@ -102,7 +102,7 @@ const Edilizia = () => {
                         </div>
 
                         {/* Right Section - Interactive Image */}
-                        <div className="flex justify-center items-center ml-15">
+                        <div className="flex justify-center items-center ml-2 md:ml-15">
                             <Image
                                 src="/images/edilizia-main-V2.png"
                                 alt="Construction site"
@@ -122,7 +122,7 @@ const Edilizia = () => {
             >
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     {/* Left Card - Testo */}
-                    <div className="bg-[#111111] p-8 rounded-2xl shadow-lg">
+                    <div className="bg-[#111111] p-8 rounded-2xl shadow-lg text-center md:text-start">
                         <h2 className="text-4xl font-extrabold text-white mb-6">
                             Costruiamo il Futuro, Insieme
                         </h2>
@@ -130,11 +130,11 @@ const Edilizia = () => {
                             La nostra impresa edile nasce dalla passione per il costruire <strong>bene</strong>, trasformando idee in strutture solide e su misura. <br />
                             Da oltre due decenni trasformiamo idee in spazi concreti, funzionali e duraturi.
                         </p>
-                        <p className="text-lg text-gray-300 mb-4">
+                        <p className="text-lg text-gray-300 mb-4 hidden md:block">
                             Offriamo soluzioni personalizzate per privati, aziende ed enti pubblici, con attenzione ai dettagli,<br />
                             rispetto dei tempi e materiali di alta qualità.
                         </p>
-                        <p className="text-lg text-gray-300 mb-4">
+                        <p className="text-lg text-gray-300 mb-4 hidden md:block">
                             Siamo sempre aperti a nuove sinergie: collaboriamo con architetti, ingegneri, artigiani e fornitori<br />
                             per dare vita a progetti ambiziosi.
                         </p>
@@ -144,7 +144,7 @@ const Edilizia = () => {
                     </div>
 
                     {/* Right - Due immagini verticali */}
-                    <div className="flex flex-col gap-6">
+                    <div className="hidden md:flex flex-col gap-6">
                         <img
                             src="/images/edilizia/edilizia-about-4.jpg"
                             alt="Foto 1"
@@ -160,10 +160,10 @@ const Edilizia = () => {
             </section>
 
             {/* Sezione MODULI PREVENTIVI */}
-            <section id="servizi" className="w-full bg-[#1a1a1a]">
+            <section id="servizi" className="w-full bg-[#1a1a1a] h-auto">
                 <div className="text-center text-white pt-20 mb-0 px-4">
                     <h1 className="text-4xl font-bold text-yellow-400 mb-4">I nostri servizi</h1>
-                    <p className="text-lg text-gray-300">
+                    <p className="text-lg text-gray-300 mb-6 md:mb-2">
                         Seleziona l'opzione che ti interessa e compila il modulo corrispondente.
                     </p>
                 </div>
@@ -173,7 +173,9 @@ const Edilizia = () => {
             {/* Sezione Gallery */}
             <section id="gallery" className="bg-[#1e1e1e] flex flex-col items-center bg">
                 <h1 className="text-3xl font-bold py-2 mt-16 text-white">I nostri cantieri</h1>
-                <p className="text-lg text-gray-200 mt-3 mb-6">Quì troverai una serie di lavori di cui ci siamo occupati negli scorsi anni.</p>
+                <p className="text-lg text-gray-200 mt-3 mb-1 px-4 text-center">Quì troverai una serie di lavori di cui ci siamo occupati negli scorsi anni.</p>
+                <p className="text-gray-200 px-8 mb-6 text-lg border-b pb-6 border-gray-200">
+                    Esplora i nostri lavori: seleziona una copertina per accedere a tutte le immagini.</p>
                 <Gallery collectionName="edilizia-galleries" />
             </section>
 

@@ -22,16 +22,16 @@ export default function Home({ sections }: HomeProps) {
                         fontFamily: "var(--font-raleway), serif",
                         fontWeight: "500"
                     }}>
-                        / Passa con il mouse sulla sezione che ti interessa per procedere /
+                         Passa con il mouse sulla sezione che ti interessa per procedere 
                     </p>
                 </div>
 
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-white text-2xl font-bold z-50 w-40 h-16">
+                <div className="absolute top-[-3%] left-1/2 transform -translate-x-1/2 text-white text-2xl font-bold z-50 w-60 h-16">
                     <Image
                         src="/images/logo-zmp-group-w.png"
                         alt="logo"
-                        width={160}
-                        height={64}
+                        width={260}
+                        height={164}
                         style={{ objectFit: "contain" }}
                     />
                 </div>
@@ -65,7 +65,7 @@ export default function Home({ sections }: HomeProps) {
                         }}>
                             Che sia per un preventivo, una <br /> collaborazione o per trovare lavoro, abbiamo <br /> quello che fa per te nel settore edile.</p>
                         <Link href="/edilizia">
-                            <button className="mt-4 px-6 py-2 bg-white text-black font-bold rounded-lg">Scopri di più</button>
+                            <button className="mt-4 px-6 py-2 bg-white text-black font-bold rounded-lg cursor-pointer">Scopri di più</button>
                         </Link>
                     </div>
                 </div>
@@ -99,7 +99,7 @@ export default function Home({ sections }: HomeProps) {
                         }}>
                             Scegli l'auto che ti accompagna <br /> ogni giorno: tante opzioni per <br /> trovare quella che ti calza a pennello.</p>
                         <Link href="/cars">
-                            <button className="mt-4 px-6 py-2 bg-white text-black font-bold rounded-lg">Scopri di più</button>
+                            <button className="mt-4 px-6 py-2 bg-white text-black font-bold rounded-lg cursor-pointer">Scopri di più</button>
                         </Link>
                     </div>
                 </div>
@@ -135,7 +135,7 @@ export default function Home({ sections }: HomeProps) {
 
                     {/* Titolo e sottotitolo */}
                     <div className="text-center px-8">
-                        <p className="text-lg text-white mb-4">/ Ci occupiamo di tutto ciò che riguarda l’edilizia e le auto /</p>
+                        <p className="text-lg text-white mb-4"> Ci occupiamo di tutto ciò che riguarda l’edilizia e le auto </p>
                     </div>
 
                     {/* Sezioni */}

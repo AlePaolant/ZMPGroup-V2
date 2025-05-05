@@ -110,7 +110,7 @@ export default function WizardRichiestaAuto() {
                     </select>
 
                     <div>
-                        <label className="block mb-1">Anno</label>
+                        <label className="block mb-1">Anno: <span>{annoDa}</span> - <span>{annoA}</span></label>
                         <MultiRangeSlider
                             min={1990}
                             max={2025}

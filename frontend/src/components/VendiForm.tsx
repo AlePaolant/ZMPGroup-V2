@@ -164,14 +164,14 @@ export default function VendiForm() {
                             </button>
 
                             <div className="space-y-4">
-                                <div className="p-4 rounded-lg bg-blue-900/30 border border-blue-500/30 text-blue-200">
+                                <div className="p-4 rounded-lg bg-red-900/90 border border-red-500/30 text-red-100 shadow-lg shadow-gray-500">
                                     <h3 className="font-semibold text-sm mb-1">REQUISITI FOTO</h3>
                                     <ul className="text-xs space-y-1">
                                         <li>• Max 6 foto (2MB l'una, solo JPG)</li>
                                     </ul>
                                 </div>
 
-                                <div className="p-4 rounded-lg bg-yellow-900/20 border border-yellow-500/20 text-yellow-200">
+                                <div className="p-4 rounded-lg bg-yellow-700/90 border border-yellow-500/20 text-yellow-100 shadow-lg shadow-gray-500">
                                     <h3 className="font-semibold text-sm mb-1">PROCESSO</h3>
                                     <ul className="text-xs space-y-1">
                                         <li>• Valutazione veloce via email entro 48h</li>
@@ -180,7 +180,7 @@ export default function VendiForm() {
                             </div>
                         </div>
 
-                        <div className="bg-white p-6 rounded-xl shadow-lg text-gray-900">
+                        <div className="p-6 rounded-xl shadow-lg bg-gray-900 text-white rounded-xl shadow-gray-700">
                             <FormContent
                                 {...{ formData, handleInputChange, files, handleRemoveFile, dragActive, handleDragOver, handleDragLeave, handleDrop, handleFileChange, fileError, recaptchaToken, setRecaptchaToken, handleSubmit }}
                             />

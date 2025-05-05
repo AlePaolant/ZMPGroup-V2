@@ -156,7 +156,7 @@ const ModuloGenerico = ({ moduloType, titolo, campi }: ModuloGenericoProps) => {
 };
 
 const Contatti = () => (
-  <div className="mt-[-15%] text-center">
+  <div className=" mt-0 md:mt-[-15%] text-center">
     <h2 className="text-white text-2xl font-bold mb-6">Preferisci parlare a voce?</h2>
     <p className="text-gray-200 text-lg">Chiama dal Lunedì al Venerdì</p>
     <p className="text-gray-300 text-lg">9:00-13:00 | 14:00-17:00</p>
@@ -179,7 +179,7 @@ const EdiliziaForm = () => {
   const [selectedButton, setSelectedButton] = useState(1);
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-[#1a1a1a]">
+    <div className="flex flex-col md:flex-row min-h-screen bg-[#1a1a1a]">
       {/* Left - Buttons */}
       <div className="w-full md:w-1/2 p-4 flex flex-col gap-6 justify-center items-center">
         <div className="w-full flex flex-row gap-6 justify-center items-center">

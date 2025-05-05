@@ -13,7 +13,7 @@ type FooterProps = {
         address?: string;
         addressLink?: string;
     };
-    socialLinks?: { name: string; href: string; icon: React.ReactNode }[]; // Modificato per accettare ReactNode
+    socialLinks?: { name: string; href: string; icon: React.ReactNode }[]; 
     bgColor?: string;
     textColor?: string;
     fontClass?: string;
@@ -23,7 +23,7 @@ const Footer: React.FC<FooterProps> = ({
     logo = (
         <span className="text-2xl font-bold">LOGO</span>
     ),
-    copyrightText = `© ${new Date().getFullYear()} Nome Azienda. Tutti i diritti riservati.`,
+    copyrightText = `© ${new Date().getFullYear()} ZMP Group. Tutti i diritti riservati.`,
     navigationLinks = [
         { name: 'Home', href: '/' },
         { name: 'Chi Siamo', href: '/about' },
@@ -126,7 +126,7 @@ const Footer: React.FC<FooterProps> = ({
                         </ul>
                     </div>
 
-                    {/* Colonna Seguici */}
+                    {/* Colonna Seguici 
                     <div className="md:col-span-3">
                         <h3 className="text-lg font-semibold mb-4">SEGUICI</h3>
                         <div className="flex space-x-4">
@@ -144,6 +144,7 @@ const Footer: React.FC<FooterProps> = ({
                             ))}
                         </div>
                     </div>
+                    */}
                 </div>
             </div>
         </footer>

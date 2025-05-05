@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <nav
-      className={`${colors.background} fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out`}
+      className={`${colors.background} fixed top-0 left-0 w-full z-40 transition-all duration-300 ease-in-out`}
     >
       <div className="container mx-auto px-0 py-4 flex items-center justify-between">
         {/* Logo con cursor-pointer solo per il logo */}
@@ -72,6 +72,17 @@ const Navbar: React.FC<NavbarProps> = ({
           </Link>
         </div>
 
+        {/* Toggle Button per Mobile */}
+        <div className="md:hidden ml-auto pr-4">
+          <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
+            {isOpen ? (
+              <X className={`${colors.text} z-50 w-8 h-8`} />
+            ) : (
+              <Menu className={`${colors.text} w-8 h-8`} />
+            )}
+          </button>
+        </div>
+
         {/* Menu Links a destra su desktop */}
         <div className="hidden md:flex ml-auto space-x-6">
           {/* Links a sinistra */}
@@ -79,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <Link
               key={index}
               href={link.href}
-              className={`text-lg font-medium ${colors.text} ${colors.hover} cursor-pointer`} 
+              className={`text-lg font-medium ${colors.text} ${colors.hover} cursor-pointer`}
             >
               {link.name}
             </Link>
@@ -90,7 +101,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <Link
               key={index}
               href={link.href}
-              className={`text-lg font-medium ${colors.text} ${colors.hover} cursor-pointer`} 
+              className={`text-lg font-medium ${colors.text} ${colors.hover} cursor-pointer`}
             >
               {link.name}
             </Link>
@@ -104,12 +115,19 @@ const Navbar: React.FC<NavbarProps> = ({
           className={`${colors.background} absolute top-0 left-0 w-full h-screen backdrop-blur-lg flex flex-col items-center justify-center space-y-6 md:hidden transition-opacity duration-300 ease-in-out opacity-100`}
         >
           {/* Logo sopra l'overlay mobile */}
-          <div className="absolute top-6 left-6">
+          <div className="absolute top-6 left-6 z-50">
             <img
               src={currentLogo}
               alt="Logo"
               className={`${logoSize} transition-all duration-300 cursor-pointer`} // Aggiungi il cursore pointer anche nel menu mobile
             />
+          </div>
+
+          {/* X per chiudere */}
+          <div className="absolute top-6 right-6 z-50">
+            <button onClick={() => setIsOpen(false)} className="focus:outline-none">
+              <X className={`${colors.text} w-8 h-8`} />
+            </button>
           </div>
 
           {/* Links nel menu mobile (uno sotto l'altro) */}
@@ -118,7 +136,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <Link
                 key={index}
                 href={link.href}
-                className={`${colors.text} text-xl font-semibold cursor-pointer`} // Aggiungi il cursore pointer ai link
+                className={`${colors.text} text-xl font-semibold cursor-pointer`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
