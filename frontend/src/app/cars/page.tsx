@@ -1,9 +1,11 @@
-import Navbar from '@/components/Navbar-cars';
 import Image from 'next/image';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar-cars';
 import ScrollArrow from '@/components/ScrollArrow';
 import Footer from '@/components/Footer';
 import Gallery from '@/components/Gallery';
+import VendiForm from '@/components/VendiForm';
+import CarsRichiesta from '@/components/Cars-richiesta';
 import {
     FaFacebook,
     FaInstagram,
@@ -16,10 +18,11 @@ import {
     FaEnvelope,
     FaMapMarkerAlt,
 } from "react-icons/fa";
-import VendiForm from '@/components/VendiForm';
-import CarsRichiesta from '@/components/Cars-richiesta';
 
-const Cars = () => {
+// ISR configuration: page is regenerated every 60 seconds
+export const revalidate = 60;
+
+const Cars = async () => {
     const reasons = [
         {
             icon: <FaCarSide className="w-8 h-8 text-violet-600" />,

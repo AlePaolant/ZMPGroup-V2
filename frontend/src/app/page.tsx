@@ -7,13 +7,12 @@ export const metadata = {
 };
 
 interface HomeProps {
-  sections: Record<string, any>; // Tipizzazione per un oggetto generico
+    sections: Record<string, any>; // Tipizzazione per un oggetto generico
 }
 
 export default function Home({ sections }: HomeProps) {
     return (
-        <div className="h-screen w-screen flex flex-col lg:flex-row overflow-hidden relative" style={{ backgroundColor: "var(--background-dark)" }}>
-
+        <div className="h-screen w-full flex flex-col lg:flex-row overflow-x-hidden relative" style={{ backgroundColor: "var(--background-dark)" }}>
             {/* --- VERSIONE DESKTOP --- */}
             <div className="hidden lg:flex h-full w-full">
 
@@ -22,7 +21,7 @@ export default function Home({ sections }: HomeProps) {
                         fontFamily: "var(--font-raleway), serif",
                         fontWeight: "500"
                     }}>
-                         Passa con il mouse sulla sezione che ti interessa per procedere 
+                        Passa con il mouse sulla sezione che ti interessa per procedere
                     </p>
                 </div>
 
@@ -110,11 +109,11 @@ export default function Home({ sections }: HomeProps) {
 
 
             {/* --- VERSIONE MOBILE --- */}
-            <div className="lg:hidden flex flex-col h-screen w-screen" style={{ backgroundColor: "var(--background-dark)" }}>
+            <div className="lg:hidden flex flex-col min-h-screen pb-20 w-full" style={{ backgroundColor: "var(--background-dark)" }}>
 
                 {/* Testo di sfondo */}
-                <div className="absolute inset-0 flex justify-center items-start  transform -translate-x-1/2 -top-[5%] left-[50%] opacity-25 pointer-events-none aria-hidden">
-                    <h1 className="text-[50vw] font-bold text-black uppercase"style={{
+                <div className="absolute inset-0 flex justify-center items-start transform -translate-x-1/2 -top-[5%] left-[50%] opacity-25 pointer-events-none aria-hidden">
+                    <h1 className="text-[50vw] font-bold text-black uppercase" style={{
                         fontFamily: "var(--font-playfair), serif",
                         fontWeight: "600"
                     }} >ZMP</h1>
@@ -177,7 +176,7 @@ export default function Home({ sections }: HomeProps) {
                         </Link>
                     </div>
 
-                    <div className="text-center px-8 mt-2 opacity-70">
+                    <div className="text-center px-8 pb-10 mt-2 opacity-70">
                         <p className="text-md text-white">Scegli la sezione che ti interessa.</p>
                     </div>
                 </div>

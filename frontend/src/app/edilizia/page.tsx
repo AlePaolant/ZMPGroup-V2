@@ -15,7 +15,10 @@ import {
     FaAward,
 } from "react-icons/fa";
 
-const Edilizia = () => {
+// ISR configuration: page is regenerated every 60 seconds
+export const revalidate = 60;
+
+const Edilizia = async () => {
     const certificazioni = [
         {
             icon: <FaShieldAlt className="text-yellow-300 w-6 h-6" />,
@@ -24,14 +27,16 @@ const Edilizia = () => {
         },
         {
             icon: <FaHardHat className="text-yellow-300 w-6 h-6" />,
-            title: "SOA Categoria OG1",
+            title: "SOA",
             text: "Abilitazione per appalti pubblici in edilizia civile e industriale, riconosciuta a livello nazionale."
         },
+        /* 
         {
             icon: <FaAward className="text-yellow-300 w-6 h-6" />,
             title: "Certificazione ambientale ISO 14001",
             text: "Impegno concreto nella sostenibilità e nella riduzione dell’impatto ambientale dei cantieri."
         },
+        */
     ];
 
     return (
@@ -174,7 +179,7 @@ const Edilizia = () => {
             <section id="gallery" className="bg-[#1e1e1e] flex flex-col items-center bg">
                 <h1 className="text-3xl font-bold py-2 mt-16 text-white">I nostri cantieri</h1>
                 <p className="text-lg text-gray-200 mt-3 mb-1 px-4 text-center">Quì troverai una serie di lavori di cui ci siamo occupati negli scorsi anni.</p>
-                <p className="text-gray-200 px-8 mb-6 text-lg border-b pb-6 border-gray-200">
+                <p className="text-gray-200 px-4 mb-6 text-lg border-b pb-6 border-gray-200 text-center">
                     Esplora i nostri lavori: seleziona una copertina per accedere a tutte le immagini.</p>
                 <Gallery collectionName="edilizia-galleries" />
             </section>
@@ -243,10 +248,7 @@ const Edilizia = () => {
             {/* Sezione CERTIFICAZIONI */}
             <section id="certificazioni" className="w-full h-auto py-12 px-4 bg-[#1a1a1a]">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12 text-white">
-                        Le nostre Certificazioni
-                    </h2>
-                    <div className="flex flex-col md:flex-row md:flex-wrap gap-6">
+                    <div className="flex flex-col md:flex-row md:flex-wrap mt-6 gap-30">
                         {certificazioni.map((cert, index) => (
                             <div
                                 key={index}
