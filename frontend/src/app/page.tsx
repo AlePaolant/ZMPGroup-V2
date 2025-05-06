@@ -2,12 +2,32 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
-    title: "ZMP Group | Home",
-    description: "Ci occupiamo di tutto ciò che riguarda l’edilizia e le auto",
-};
+    title: "ZMP Group",
+    description: "Scopri i servizi di ZMP Group: edilizia, concessionario auto e soluzioni integrate. Professionalità e innovazione al tuo servizio.",
+    keywords: ["zmp group", "edilizia", "concessionario auto", "concessionario campobasso", "impresa edile", "impresa edile campobasso", "molise", "zampino", "zmp"],
+    openGraph: {
+        title: "ZMP Group",
+        description: "Professionalità e innovazione in edilizia e autoveicoli",
+        url: "https://www.zmpgroup.it",
+        images: [
+            {
+                url: "/images/home-og.jpg",
+                width: 800,
+                height: 600,
+            },
+        ],
+        siteName: "ZMP Group",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "ZMP Group",
+        description: "Professionalità e innovazione in edilizia e autoveicoli",
+        images: ["/images/home-og.jpg"],
+    },
+}
 
 interface HomeProps {
-    sections: Record<string, any>; // Tipizzazione per un oggetto generico
+    sections: Record<string, any>;
 }
 
 export default function Home({ sections }: HomeProps) {
@@ -28,7 +48,7 @@ export default function Home({ sections }: HomeProps) {
                 <div className="absolute top-[-3%] left-1/2 transform -translate-x-1/2 text-white text-2xl font-bold z-50 w-60 h-16">
                     <Image
                         src="/images/logo-zmp-group-w.png"
-                        alt="logo"
+                        alt="ZMP Group logo"
                         width={260}
                         height={164}
                         style={{ objectFit: "contain" }}
@@ -39,14 +59,14 @@ export default function Home({ sections }: HomeProps) {
                 <div className="relative w-1/2 h-full flex items-center justify-center overflow-hidden group">
                     <Image
                         src="/images/construction-background.jpg"
-                        alt="Construction Background"
+                        alt="ZMP Group edilizia foto cantiere"
                         fill={true}
                         style={{ objectFit: "cover" }}
                         className="transition-all duration-700 group-hover:brightness-0"
                     />
                     <Image
                         src="/images/construction-item.png"
-                        alt="Construction Item"
+                        alt="ZMP Group edilizia foto trasporti"
                         width={1920}
                         height={1080}
                         className="absolute transition-all duration-700 group-hover:scale-110 group-hover:-translate-x-8"
@@ -80,7 +100,7 @@ export default function Home({ sections }: HomeProps) {
                     />
                     <Image
                         src="/images/cars-item.png"
-                        alt="Cars Item"
+                        alt="ZMP Group Cars showroom"
                         width={1920}
                         height={1080}
                         className="absolute transition-all duration-700 group-hover:scale-120 group-hover:translate-x-16"
@@ -125,7 +145,7 @@ export default function Home({ sections }: HomeProps) {
                     <div className="flex justify-center w-full py-0">
                         <Image
                             src="/images/logo-zmp-group-w.png"
-                            alt="logo"
+                            alt="ZMP Group logo"
                             width={150}
                             height={150}
                             className="object-contain"

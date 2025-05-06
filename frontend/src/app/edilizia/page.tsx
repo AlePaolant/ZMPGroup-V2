@@ -18,6 +18,34 @@ import {
 // ISR configuration: page is regenerated every 60 seconds
 export const revalidate = 60;
 
+export const metadata = {
+    title: "ZMP Group | Edilizia",
+    description: "Servizi completi di edilizia civile e industriale. Richiedi un preventivo. Lavora con noi.",
+    keywords: ["zmp edilizia", "costruzioni", "ristrutturazioni", "edilizia civile", "zmp group", "lavora con noi", "collaborazione professionale", "preventivo", "campobasso", "molise", "italia"],
+    alternates: {
+        canonical: "https://www.zmpgroup.it/edilizia",
+    },
+    openGraph: {
+        title: "ZMP Group Edilizia",
+        description: "Servizi completi di edilizia civile e industriale. Richiedi un preventivo. Lavora con noi.",
+        url: "https://www.zmpgroup.it/edilizia",
+        images: [
+            {
+                url: "/images/edilizia-og.jpg",
+                width: 800,
+                height: 600,
+            },
+        ],
+        siteName: "ZMP Group | Edilizia",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "ZMP Group Edilizia",
+        description: "Servizi completi di edilizia civile e industriale. Richiedi un preventivo. Lavora con noi.",
+        images: ["/images/edilizia-og.jpg"],
+    },
+}
+
 const Edilizia = async () => {
     const certificazioni = [
         {
@@ -91,14 +119,14 @@ const Edilizia = async () => {
                             <div className="mt-30 hidden md:flex gap-8">
                                 <Image
                                     src="/images/edilizia/edilizia-about-1.jpg"
-                                    alt="Immagine 1"
+                                    alt="Cantiere edile ZMP Group Edilizia con gru di un nuovo edificio residenziale"
                                     width={300}
                                     height={150}
                                     className="rounded-lg shadow-lg"
                                 />
                                 <Image
                                     src="/images/edilizia/edilizia-about-3.jpg"
-                                    alt="Immagine 2"
+                                    alt="Progettazione edile ZMP Group Edilizia - Progettazione architettonica"
                                     width={300}
                                     height={150}
                                     className="rounded-lg shadow-lg"
@@ -110,7 +138,7 @@ const Edilizia = async () => {
                         <div className="flex justify-center items-center ml-2 md:ml-15">
                             <Image
                                 src="/images/edilizia-main-V2.png"
-                                alt="Construction site"
+                                alt="Nuovo edificio ZMP Group Edilizia con struttura in acciaio"
                                 width={600}
                                 height={400}
                                 className="rounded-xl transition-transform duration-300 ease-in-out hover:scale-103"
@@ -152,12 +180,12 @@ const Edilizia = async () => {
                     <div className="hidden md:flex flex-col gap-6">
                         <img
                             src="/images/edilizia/edilizia-about-4.jpg"
-                            alt="Foto 1"
+                            alt="Operai dell'azienda ZMP Group Edilizia a lavoro su un cantiere - muniti di tutti i dispositivi di protezione individuale"
                             className="rounded-2xl w-full max-w-[500px] object-cover shadow-lg"
                         />
                         <img
                             src="/images/edilizia/edilizia-about-2.jpg"
-                            alt="Foto 2"
+                            alt="Architetto ZMP Group Edilizia mostra dei prospetti e delle piante a dei clienti"
                             className="rounded-2xl w-full max-w-[500px] object-cover shadow-lg"
                         />
                     </div>

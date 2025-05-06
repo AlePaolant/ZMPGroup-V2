@@ -22,6 +22,35 @@ import {
 // ISR configuration: page is regenerated every 60 seconds
 export const revalidate = 60;
 
+
+export const metadata = {
+    title: "ZMP Group | Cars",
+    description: "Scopri la nostra selezione di auto usate e nuove. Trova l'auto che fa per te. Valutiamo e acquistiamo il tuo usato!",
+    keywords: ["zmp group", "zmp cars", "concessionario auto", "concessionario campobasso", "vendita auto", "compra auto", "auto usate", "zampino", "zmp", "molise"],
+    alternates: {
+        canonical: "https://www.zmpgroup.it/cars",
+    },
+    openGraph: {
+        title: "ZMP Group Cars",
+        description: "Trova l'auto dei tuoi sogni. Scopri la nostra gamma di auto nuove e usate.",
+        url: "https://www.zmpgroup.it/cars",
+        images: [
+            {
+                url: "/images/cars-og.jpg",
+                width: 800,
+                height: 600,
+            },
+        ],
+        siteName: "ZMP Group | Cars",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "ZMP Group Cars",
+        description: "Trova l'auto dei tuoi sogni. Scopri la nostra gamma di auto nuove e usate.",
+        images: ["/images/cars-og.jpg"],
+    },
+}
+
 const Cars = async () => {
     const reasons = [
         {
@@ -57,7 +86,7 @@ const Cars = async () => {
                     {/* Sfondo */}
                     <Image
                         src="/images/cars/background-main.jpg"
-                        alt="Sfondo"
+                        alt=""
                         fill
                         className="object-cover transition-transform duration-500
                                     object-[47%_20%]
@@ -71,7 +100,7 @@ const Cars = async () => {
                     {/* PNG sopra */}
                     <Image
                         src="/images/cars/auto-persona.png"
-                        alt="Auto e Persona"
+                        alt=""
                         fill
                         className="object-cover z-20 transition-transform duration-500
                                     object-[47%_20%]
@@ -258,12 +287,12 @@ const Cars = async () => {
                     </div>
 
                     <div className="mb-16 rounded-xl overflow-hidden shadow-xl">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2402.989664258596!2d14.667907750962264!3d41.58717807510492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1746392949148!5m2!1sit!2sit" 
-                            width="100%" 
-                            height="250" 
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2402.989664258596!2d14.667907750962264!3d41.58717807510492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1746392949148!5m2!1sit!2sit"
+                            width="100%"
+                            height="250"
                             style={{ border: 0 }}
                             allowFullScreen
-                            loading="lazy" 
+                            loading="lazy"
                         ></iframe>
                     </div>
 
@@ -313,7 +342,7 @@ const Cars = async () => {
                 bgColor="bg-[#0b0a1a]"
                 textColor="text-white/90"
                 fontClass="--font-poppins"
-                logo={<Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP CARS" width={170} height={50} />}
+                logo={<Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP Cars - Concessionario auto usate e nuove a Campobasso" width={170} height={50} />}
                 copyrightText="© 2025 ZMP Cars Group. Tutti i diritti riservati."
                 navigationLinks={[
                     { name: 'About', href: '#about' },

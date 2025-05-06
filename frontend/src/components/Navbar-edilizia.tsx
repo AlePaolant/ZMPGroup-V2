@@ -61,13 +61,13 @@ const Navbar: React.FC<NavbarProps> = ({
       className={`${colors.background} fixed top-0 left-0 w-full z-40 transition-all duration-300 ease-in-out`}
     >
       <div className="container mx-auto px-0 py-4 flex items-center justify-between">
-        {/* Logo con cursor-pointer solo per il logo */}
+        {/* Logo */}
         <div className="flex items-center justify-start flex-grow-0 pointer-events-auto">
           <Link href="/" passHref>
             <img
               src={currentLogo}
-              alt="Logo"
-              className={`${logoSize} transition-all duration-300 cursor-pointer`} // Aggiungi il cursore pointer al logo
+              alt="Logo ZMP Group - edilizia, concessionario auto e soluzioni integrate a Campobasso"
+              className={`${logoSize} transition-all duration-300 cursor-pointer`}
             />
           </Link>
         </div>
@@ -118,7 +118,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="absolute top-6 left-6 z-50">
             <img
               src={currentLogo}
-              alt="Logo"
+              alt="Logo ZMP Group - edilizia, concessionario auto e soluzioni integrate a Campobasso"
               className={`${logoSize} transition-all duration-300 cursor-pointer`} // Aggiungi il cursore pointer anche nel menu mobile
             />
           </div>

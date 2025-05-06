@@ -49,7 +49,7 @@ export default function Navbar() {
                     {/* Mobile Header (sempre visibile su mobile) */}
                     <div className="flex items-center justify-between w-full lg:hidden">
                         <Link href="/cars" scroll={true}>
-                            <Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP CARS" width={130} height={40} />
+                            <Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP Cars - Concessionario auto usate e nuove a Campobasso" width={130} height={40} />
                         </Link>
                         <button onClick={() => setMenuOpen(!menuOpen)} className="text-white z-50">
                             {menuOpen ? <X size={35} /> : <Menu size={35} />}
@@ -70,7 +70,7 @@ export default function Navbar() {
                             </span>
                         </Link>
                         <Link href="/cars" scroll={true}>
-                            <Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP CARS" width={170} height={50} />
+                            <Image src="/images/cars/ZMPCARS-logo.png" alt="Logo ZMP Cars - Concessionario auto usate e nuove a Campobasso" width={170} height={50} />
                         </Link>
                         <Link href="#compra" scroll={true}>
                         <span style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
