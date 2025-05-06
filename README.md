@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/AlePaolant/ZMPGroup-V2">
-    <img src="frontend/public/images/logo-zmp-group-b-V2.png" alt="Logo" width="auto" height="80">
+    <img src="frontend/public/images/logo-zmp-group-w-V2.png" alt="Logo" width="auto" height="80">
   </a>
 
   <h3 align="center">ZMP GROUP WEBSITE</h3>
