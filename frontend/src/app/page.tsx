@@ -52,6 +52,7 @@ export default function Home({ sections }: HomeProps) {
                         width={260}
                         height={164}
                         style={{ objectFit: "contain" }}
+                        priority
                     />
                 </div>
 

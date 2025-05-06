@@ -22,7 +22,6 @@ import {
 // ISR configuration: page is regenerated every 60 seconds
 export const revalidate = 60;
 
-
 export const metadata = {
     title: "ZMP Group | Cars",
     description: "Scopri la nostra selezione di auto usate e nuove. Trova l'auto che fa per te. Valutiamo e acquistiamo il tuo usato!",

@@ -46,6 +46,7 @@ export const metadata = {
     },
 }
 
+
 const Edilizia = async () => {
     const certificazioni = [
         {
