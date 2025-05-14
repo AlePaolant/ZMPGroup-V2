@@ -174,12 +174,12 @@ const Cars = async () => {
 
                         <div className="space-y-6 text-gray-300 mb-10 text-lg px-4">
                             <p>
-                                Nati nel 2024 come realtà innovativa nel mondo dell'auto, combiniamo la tradizione del buon usato con tecnologie
+                                Nati nel 2024 come realtà innovativa nel mondo dell&apos;auto, combiniamo la tradizione del buon usato con tecnologie
                                 avanzate di selezione veicoli, per proporti solo auto che corrispondono davvero alle tue esigenze.
                             </p>
                             <p>
-                                Se cerchi un'auto nuova di zecca o un usato premium con garanzia, abbiamo creato un processo semplice e trasparente:
-                                inserisci l'auto dei tuoi sogni nel nostro modulo di ricerca e lascia fare a noi il lavoro pesante.
+                                Se cerchi un&apos;auto nuova di zecca o un usato premium con garanzia, abbiamo creato un processo semplice e trasparente:
+                                inserisci l&apos;auto dei tuoi sogni nel nostro modulo di ricerca e lascia fare a noi il lavoro pesante.
                             </p>
                             <p>
                                 <strong>Acquistiamo anche la tua auto!</strong> Valutazioni rapide e competitive, senza sorprese.
@@ -248,7 +248,7 @@ const Cars = async () => {
             {/* Sezione PERCHÈ NOI*/}
             <section id="perchenoi" className="w-full h-auto py-12 px-4 bg-gray-100">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">
+                    <h2 className="text-3xl font-bold text-center text-black mb-12">
                         Perché scegliere noi
                     </h2>
                     <div className="flex flex-col md:flex-row md:flex-wrap gap-6">
@@ -259,7 +259,7 @@ const Cars = async () => {
                             >
                                 <div className="flex items-center mb-4">
                                     {reason.icon}
-                                    <h4 className="text-lg font-semibold ml-3">{reason.title}</h4>
+                                    <h4 className="text-lg text-black font-semibold ml-3">{reason.title}</h4>
                                 </div>
                                 <p className="text-gray-600 text-sm">{reason.text}</p>
                             </div>

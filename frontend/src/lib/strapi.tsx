@@ -10,34 +10,54 @@ export interface GalleryItem {
   coverImage?: { url: string };
 }
 
+interface StrapiRawItem {
+  id: number;
+  title: string;
+  images: StrapiImage[];
+  coverImage?: StrapiImage;
+}
+
+interface StrapiImageFormat {
+  url: string;
+}
+
+interface StrapiImage {
+  url: string;
+  formats?: {
+    small?: StrapiImageFormat;
+  };
+}
+
+
+
 export const fetchGalleryItems = async (collection: string): Promise<GalleryItem[]> => {
   try {
-    const { data } = await axios.get(`${STRAPI_API_URL}/${collection}?populate=*`);
+    const response = await axios.get(`${STRAPI_API_URL}/${collection}?populate=*`);
+    const items: StrapiRawItem[] = Array.isArray(response.data.data)
+      ? response.data.data
+      : [response.data.data];
 
-    const items = Array.isArray(data.data) ? data.data : [data.data];
+    console.log("DEBUG - Risposta da Strapi:", items);
 
-    return items.map((item: any) => {
-      const attributes = item.attributes || item;
-
-      const images = (attributes.images || []).map((img: any) => {
+    return items.map((item) => {
+      const images = (item.images || []).map((img: StrapiImage) => {
         const imageUrl = img.formats?.small?.url || img.url;
-        return {
-          url: `${STRAPI_MEDIA_URL}${imageUrl}`
-        };
+        return { url: `${STRAPI_MEDIA_URL}${imageUrl}` };
       });
 
-      const cover = attributes.coverImage;
+      const cover = item.coverImage;
       const coverImageUrl = cover?.formats?.small?.url || cover?.url;
-      const coverImage = coverImageUrl ? { url: `${STRAPI_MEDIA_URL}${coverImageUrl}` } : undefined;
+      const coverImage = coverImageUrl
+        ? { url: `${STRAPI_MEDIA_URL}${coverImageUrl}` }
+        : undefined;
 
       return {
         id: item.id,
-        title: attributes.title || "Senza titolo",
+        title: item.title || "Senza titolo",
         images,
-        coverImage
+        coverImage,
       };
     }).reverse();
-
   } catch (error) {
     console.error("Errore nel fetch dei dati da Strapi:", error);
     throw new Error("Impossibile caricare la galleria");

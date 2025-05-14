@@ -41,7 +41,7 @@ interface ClickableDivProps {
 const ClickableDiv = ({ onClick, title, description, icon, active }: ClickableDivProps) => (
   <div
     onClick={onClick}
-    className={`w-70 h-65 flex flex-col items-center justify-center rounded-3xl cursor-pointer ${active ? "bg-black text-yellow-300 shadow-none" : "bg-gray-200 shadow-xl"
+    className={`w-70 h-65 flex flex-col items-center justify-center rounded-3xl cursor-pointer ${active ? "bg-black text-yellow-300 shadow-none" : "bg-gray-200 text-black shadow-xl"
       }`}
   >
     <div className="text-3xl">{icon}</div>
@@ -68,7 +68,6 @@ const ModuloGenerico = ({ moduloType, titolo, campi }: ModuloGenericoProps) => {
     const data: { [key: string]: string } = {};
 
     formData.forEach((value, key) => {
-      // Castiamo i valori a stringa, in modo da evitare conflitti di tipo
       data[key] = value.toString();
     });
 
@@ -86,7 +85,8 @@ const ModuloGenerico = ({ moduloType, titolo, campi }: ModuloGenericoProps) => {
       } else {
         alert("Errore nell'invio dell'email: " + result.error);
       }
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error("Errore di connessione:", error);
       alert("Errore di connessione.");
     } finally {
       setIsLoading(false);
@@ -94,7 +94,6 @@ const ModuloGenerico = ({ moduloType, titolo, campi }: ModuloGenericoProps) => {
   };
 
   return (
-    //MODULO GENERICO
     <div className="p-6 mr-4 bg-[#444444] rounded-3xl space-y-6 shadow-xl">
       <h2 className="text-2xl font-bold mb-4 text-white">{titolo}</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -132,7 +131,7 @@ const ModuloGenerico = ({ moduloType, titolo, campi }: ModuloGenericoProps) => {
             className="mt-1 accent-yellow-400"
           />
           <label className="text-white text-sm">
-            Acconsento al trattamento dei miei dati personali, come indicato nell'informativa sulla privacy.
+            Acconsento al trattamento dei miei dati personali, come indicato nell&apos;informativa sulla privacy.
           </label>
         </div>
 

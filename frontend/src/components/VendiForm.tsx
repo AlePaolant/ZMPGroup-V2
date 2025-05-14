@@ -136,7 +136,7 @@ export default function VendiForm() {
                 <div className="max-w-3xl mx-auto">
                     <h1 className="text-4xl font-bold mb-6">Vendi la tua auto con noi</h1>
                     <p className="text-xl mb-8">
-                        Ottieni una valutazione immediata e un'offerta competitiva per la tua auto usata.
+                        Ottieni una valutazione immediata e un&apos;offerta competitiva per la tua auto usata.
                         Il processo è veloce, trasparente e senza impegno.
                     </p>
                     <button
@@ -167,7 +167,7 @@ export default function VendiForm() {
                                 <div className="p-4 rounded-lg bg-red-900/90 border border-red-500/30 text-red-100 shadow-lg shadow-gray-500">
                                     <h3 className="font-semibold text-sm mb-1">REQUISITI FOTO</h3>
                                     <ul className="text-xs space-y-1">
-                                        <li>• Max 6 foto (2MB l'una, solo JPG)</li>
+                                        <li>• Max 6 foto (2MB l&apos;una, solo JPG)</li>
                                     </ul>
                                 </div>
 
@@ -236,6 +236,29 @@ export default function VendiForm() {
 }
 
 // Componente separato per il contenuto del form
+interface FormContentProps {
+    formData: {
+      nome: string;
+      cognome: string;
+      email: string;
+      telefono: string;
+      targa: string;
+      descrizione: string;
+    };
+    handleInputChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    files: File[];
+    handleRemoveFile: (index: number) => void;
+    dragActive: boolean;
+    handleDragOver: (e: DragEvent<HTMLLabelElement>) => void;
+    handleDragLeave: () => void;
+    handleDrop: (e: DragEvent<HTMLLabelElement>) => void;
+    handleFileChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    fileError: string;
+    recaptchaToken: string | null;
+    setRecaptchaToken: (token: string | null) => void;
+    handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  }
+
 function FormContent({
     formData,
     handleInputChange,
@@ -250,7 +273,7 @@ function FormContent({
     recaptchaToken,
     setRecaptchaToken,
     handleSubmit
-}: any) {
+}: FormContentProps) {
     return (
         <form onSubmit={handleSubmit} className="space-y-4 text-white">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

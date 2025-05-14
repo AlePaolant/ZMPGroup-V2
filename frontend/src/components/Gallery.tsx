@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Image from 'next/image';
 import { fetchGalleryItems } from "@/lib/strapi";
 import GalleryPopup from "@/components/GalleryPopup";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -10,14 +11,26 @@ interface Props {
     collectionName: string;
 }
 
+interface GalleryItem {
+    id: number;
+    title: string;
+    coverImage?: { url: string };
+    images: { url: string }[];
+}
+
 const Gallery = ({ collectionName }: Props) => {
-    const [items, setItems] = useState<any[]>([]);
+    const [items, setItems] = useState<GalleryItem[]>([]);
     const [popupIndex, setPopupIndex] = useState<number | null>(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    //const [currentIndex, setCurrentIndex] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        fetchGalleryItems(collectionName).then(setItems);
+        fetchGalleryItems(collectionName).then((items) => {
+            console.log("DEBUG - Gallery items:", items);
+            setItems(items);
+        }).catch((err) => {
+            console.error("DEBUG - Errore nel fetch:", err);
+        });
     }, [collectionName]);
 
     const scrollContainer = (dir: "left" | "right") => {
@@ -35,8 +48,8 @@ const Gallery = ({ collectionName }: Props) => {
         if (!container) return;
 
         const handleScroll = () => {
-            const index = Math.round(container.scrollLeft / 300);
-            setCurrentIndex(index);
+            //const index = Math.round(container.scrollLeft / 300);
+            //setCurrentIndex(index);
         };
 
         container.addEventListener("scroll", handleScroll);
@@ -49,7 +62,7 @@ const Gallery = ({ collectionName }: Props) => {
             setPopupIndex(index);
             return;
         }
-        
+
         // Su desktop, controlla se il click è sul pulsante
         const target = event.target as HTMLElement;
         if (!target.closest('button')) {
@@ -66,24 +79,27 @@ const Gallery = ({ collectionName }: Props) => {
                 className="flex gap-4 px-8 overflow-x-scroll scroll-smooth scroll-snap-x snap-x snap-mandatory no-scrollbar"
             >
                 {items.map((item, index) => (
-                    <div 
-                        key={item.id} 
+                    <div
+                        key={item.id}
                         onClick={(e) => handleCardClick(index, e)}
                         className="relative group snap-start min-w-[300px] max-w-[300px] h-[200px] rounded-lg overflow-hidden cursor-pointer shrink-0"
                     >
-                        <img
+                        <Image
                             src={item.coverImage?.url || item.images[0]?.url}
                             alt={item.title}
-                            className="object-cover w-full h-full transition-all group-hover:brightness-50"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 300px"
+                            className="object-cover transition-all group-hover:brightness-50"
+                            style={{ objectFit: 'cover' }}
                         />
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                             <div className="text-center text-white">
                                 <h3 className="text-lg font-bold">{item.title}</h3>
-                                <button 
+                                <button
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         setPopupIndex(index);
-                                    }} 
+                                    }}
                                     className="mt-2 bg-white text-black px-4 py-1 rounded shadow cursor-pointer"
                                 >
                                     Apri
@@ -101,7 +117,7 @@ const Gallery = ({ collectionName }: Props) => {
                     onClose={() => setPopupIndex(null)}
                 />
             )}
-            
+
             <div className="mt-10 mx-4 relative">
                 <div className="flex items-center justify-center">
                     <button

@@ -26,11 +26,8 @@ export const metadata = {
     },
 }
 
-interface HomeProps {
-    sections: Record<string, any>;
-}
-
-export default function Home({ sections }: HomeProps) {
+// Se non stai effettivamente usando le sections, puoi rimuovere completamente l'interfaccia e la prop
+export default function Home() {
     return (
         <div className="h-screen w-full flex flex-col lg:flex-row overflow-x-hidden relative" style={{ backgroundColor: "var(--background-dark)" }}>
             {/* --- VERSIONE DESKTOP --- */}
@@ -117,17 +114,13 @@ export default function Home({ sections }: HomeProps) {
                             fontFamily: "var(--font-poppins), serif",
                             fontWeight: "300"
                         }}>
-                            Scegli l'auto che ti accompagna <br /> ogni giorno: tante opzioni per <br /> trovare quella che ti calza a pennello.</p>
+                            Scegli l&apos;auto che ti accompagna <br /> ogni giorno: tante opzioni per <br /> trovare quella che ti calza a pennello.</p>
                         <Link href="/cars">
                             <button className="mt-4 px-6 py-2 bg-white text-black font-bold rounded-lg cursor-pointer">Scopri di più</button>
                         </Link>
                     </div>
                 </div>
             </div>
-
-
-
-
 
             {/* --- VERSIONE MOBILE --- */}
             <div className="lg:hidden flex flex-col min-h-screen pb-20 w-full" style={{ backgroundColor: "var(--background-dark)" }}>
@@ -139,8 +132,6 @@ export default function Home({ sections }: HomeProps) {
                         fontWeight: "600"
                     }} >ZMP</h1>
                 </div>
-
-
                 <div className="absolute top-0 left-0 w-full text-center py-4">
                     {/* Logo */}
                     <div className="flex justify-center w-full py-0">
@@ -155,7 +146,7 @@ export default function Home({ sections }: HomeProps) {
 
                     {/* Titolo e sottotitolo */}
                     <div className="text-center px-8">
-                        <p className="text-lg text-white mb-4"> Ci occupiamo di tutto ciò che riguarda l’edilizia e le auto </p>
+                        <p className="text-lg text-white mb-4"> Ci occupiamo di tutto ciò che riguarda l&apos;edilizia e le auto </p>
                     </div>
 
                     {/* Sezioni */}
@@ -202,8 +193,6 @@ export default function Home({ sections }: HomeProps) {
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 }

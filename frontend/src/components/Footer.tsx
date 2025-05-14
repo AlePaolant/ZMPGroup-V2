@@ -126,7 +126,7 @@ const Footer: React.FC<FooterProps> = ({
                         </ul>
                     </div>
 
-                    {/* Colonna Seguici 
+                    {/*Colonna Seguici */}
                     <div className="md:col-span-3">
                         <h3 className="text-lg font-semibold mb-4">SEGUICI</h3>
                         <div className="flex space-x-4">
@@ -144,7 +144,6 @@ const Footer: React.FC<FooterProps> = ({
                             ))}
                         </div>
                     </div>
-                    */}
                 </div>
             </div>
         </footer>

@@ -109,13 +109,86 @@ tunnels:
 **Backend:**
 - `pg`: Connessione PostgreSQL
 
+
+## Configurazione VPS
+**DEBIAN 12**   
+sistema pre installato
+1. **ACCESSO AL SERVER**
+  ```bash
+  ssh root@IP_DEL_SERVER
+  ```
+2. **CONFIGURAZIONE DI BASE (SICUREZZA)**
+  - creazione di un utente normale:
+  ```bash
+  adduser alepaolant
+  usermod -aG sudo alepaolant
+  ```
+  - copia la chiave SSH nel nuovo utente, in modo da connettermi come alepaolant via SSH, proprio come root
+  ```bash
+  rsync --archive --chown=alepaolant:alepaolant ~/.ssh /home/alepaolant
+  ```
+  - Disabilitare l'accesso root via SSH
+  ```bash
+  nano /etc/ssh/sshd_config
+  PermitRootLogin no
+  ```
+  ```bash
+  systemctl restart ssh
+  ```
+   **IMPORTANTE:** prima di disabilitare l'accesso prova ad entrare da un'altra finestra, per non rischiare di rimanere fuori
+   ```bash
+   ssh alepaolant@IP_DEL_SERVER
+  ```
+3. **AGGIORNAMENTO SISTEMA**
+  e installazione utility base:
+  ```bash
+  apt update && apt upgrade -y
+  ```
+  ```bash
+  apt install -y curl ufw htop fail2ban git unzip
+  ```
+4. **FIREWALL + SSHGUARD**
+- UFW = Uncomplicated Firewall:
+lascia aperta porta 22 per SSH, 80 per HTTP, 443 HTTPS
+```bash
+sudo apt install ufw -y
+ufw allow OpenSSH
+ufw allow http
+ufw allow https
+ufw enable
+  ```
+- SSHGUARD (contro brute force - tipo FAIL2BAN):
+```bash
+  ```
+5. **INSTALLAZIONE STACK DI BASE**
+- **nvm (node version manager)**
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc  # (o ~/.zshrc se usi Zsh)
+  ```
+- **Node.js 18+ (compatibile con Next.js 15 e Strapi 5)**
+```bash
+nvm install --lts #ultima versione di node, attualmente v22.15.0
+  ```
+- **PostgreSQL**
+```bash
+sudo apt install -y postgresql postgresql-contrib
+  ```
+AAAA. **NGINX** - **Conta che la directory ora è:**
+```bash
+cd /var/www/zmpgroup.it/
+  ```
+
+
+
 ## Roadmap & TODO
 **Ottimizzazione SEO**
 **Privacy**
 **Deployment**
 1. **VPS**
+- `Hetzner`: 2vCPU - 4GB Ram - 40GB SSD - 20TB - AMD
 2. **Dominio**
-    a. DNS (A record)
+    - `Aruba`: dominio .it con mail associata
     b. SSL (Let's Encrypt)
 3. **Backup**
     a. Automazione backup giornalieri

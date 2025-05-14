@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavbarProps {
   logo: string;
@@ -64,10 +65,13 @@ const Navbar: React.FC<NavbarProps> = ({
         {/* Logo */}
         <div className="flex items-center justify-start flex-grow-0 pointer-events-auto">
           <Link href="/" passHref>
-            <img
+            <Image
               src={currentLogo}
               alt="Logo ZMP Group - edilizia, concessionario auto e soluzioni integrate a Campobasso"
+              width={160} // o la larghezza effettiva del tuo logo
+              height={52} // o l’altezza effettiva del logo
               className={`${logoSize} transition-all duration-300 cursor-pointer`}
+              priority
             />
           </Link>
         </div>
@@ -116,11 +120,16 @@ const Navbar: React.FC<NavbarProps> = ({
         >
           {/* Logo sopra l'overlay mobile */}
           <div className="absolute top-6 left-6 z-50">
-            <img
-              src={currentLogo}
-              alt="Logo ZMP Group - edilizia, concessionario auto e soluzioni integrate a Campobasso"
-              className={`${logoSize} transition-all duration-300 cursor-pointer`} // Aggiungi il cursore pointer anche nel menu mobile
-            />
+            <Link href="/" passHref>
+              <Image
+                src={currentLogo}
+                alt="Logo ZMP Group - edilizia, concessionario auto e soluzioni integrate a Campobasso"
+                width={160}
+                height={52}
+                className={`${logoSize} transition-all duration-300 cursor-pointer`}
+                priority
+              />
+            </Link>
           </div>
 
           {/* X per chiudere */}

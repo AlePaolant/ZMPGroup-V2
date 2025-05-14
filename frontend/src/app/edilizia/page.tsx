@@ -12,7 +12,6 @@ import {
     FaMapMarkerAlt,
     FaShieldAlt,
     FaHardHat,
-    FaAward,
 } from "react-icons/fa";
 
 // ISR configuration: page is regenerated every 60 seconds
@@ -138,11 +137,12 @@ const Edilizia = async () => {
                         {/* Right Section - Interactive Image */}
                         <div className="flex justify-center items-center ml-2 md:ml-15">
                             <Image
-                                src="/images/edilizia-main-V2.png"
+                                src="/images/edilizia-main-v2.png"
                                 alt="Nuovo edificio ZMP Group Edilizia con struttura in acciaio"
                                 width={600}
                                 height={400}
                                 className="rounded-xl transition-transform duration-300 ease-in-out hover:scale-103"
+                                unoptimized={true}
                             />
                         </div>
                     </div>
@@ -179,15 +179,19 @@ const Edilizia = async () => {
 
                     {/* Right - Due immagini verticali */}
                     <div className="hidden md:flex flex-col gap-6">
-                        <img
+                        <Image
                             src="/images/edilizia/edilizia-about-4.jpg"
                             alt="Operai dell'azienda ZMP Group Edilizia a lavoro su un cantiere - muniti di tutti i dispositivi di protezione individuale"
                             className="rounded-2xl w-full max-w-[500px] object-cover shadow-lg"
+                            width={500}
+                            height={300} // Specifica un'altezza appropriata
                         />
-                        <img
+                        <Image
                             src="/images/edilizia/edilizia-about-2.jpg"
                             alt="Architetto ZMP Group Edilizia mostra dei prospetti e delle piante a dei clienti"
                             className="rounded-2xl w-full max-w-[500px] object-cover shadow-lg"
+                            width={500}
+                            height={300} // Specifica un'altezza appropriata
                         />
                     </div>
                 </div>
@@ -198,7 +202,7 @@ const Edilizia = async () => {
                 <div className="text-center text-white pt-20 mb-0 px-4">
                     <h1 className="text-4xl font-bold text-yellow-400 mb-4">I nostri servizi</h1>
                     <p className="text-lg text-gray-300 mb-6 md:mb-2">
-                        Seleziona l'opzione che ti interessa e compila il modulo corrispondente.
+                        Seleziona l&apos;opzione che ti interessa e compila il modulo corrispondente.
                     </p>
                 </div>
                 <EdiliziaForm />
@@ -277,7 +281,7 @@ const Edilizia = async () => {
             {/* Sezione CERTIFICAZIONI */}
             <section id="certificazioni" className="w-full h-auto py-12 px-4 bg-[#1a1a1a]">
                 <div className="max-w-6xl mx-auto">
-                    <div className="flex flex-col md:flex-row md:flex-wrap mt-6 gap-30">
+                    <div className="flex flex-col md:flex-row md:flex-wrap mt-6 md:gap-30 gap-8">
                         {certificazioni.map((cert, index) => (
                             <div
                                 key={index}

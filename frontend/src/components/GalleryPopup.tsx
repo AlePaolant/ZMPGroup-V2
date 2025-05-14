@@ -2,8 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import Image from "next/image";
 
-const GalleryPopup = ({ item, onClose }: { item: any; onClose: () => void }) => {
+interface ImageItem {
+    url: string;
+}
+
+interface GalleryItem {
+    images: ImageItem[];
+}
+
+const GalleryPopup = ({ item, onClose }: { item: GalleryItem; onClose: () => void }) => {
     const [current, setCurrent] = useState(0);
 
     useEffect(() => {
@@ -29,20 +38,26 @@ const GalleryPopup = ({ item, onClose }: { item: any; onClose: () => void }) => 
 
                 {/* Preview - Sempre in alto su mobile, a sinistra su desktop */}
                 <div className="flex-1 flex items-center justify-center bg-gray-100 overflow-hidden relative">
-                    <img
+                    <Image
                         src={item.images[current].url}
-                        alt="Preview"
-                        className="h-full w-[100%] object-contain p-4"
+                        alt={item.images[current].url || "Preview image"}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 70vw"
+                        className="object-contain p-4"
+                        style={{ position: "relative" }}
                     />
                 </div>
 
                 {/* Thumbnails - Modificato per mobile */}
                 <div className="w-full md:w-[25%] md:overflow-y-auto p-3 bg-white border-t md:border-t-0 md:border-l border-gray-200">
                     <div className="flex md:flex-col gap-3 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0">
-                        {item.images.map((img: any, idx: number) => (
+                        {item.images.map((img: ImageItem, idx: number) => (
                             <div key={idx} className="relative flex-shrink-0">
-                                <img
+                                <Image
                                     src={img.url}
+                                    alt={`Thumbnail ${idx + 1}`}
+                                    width={80}
+                                    height={80}
                                     onClick={() => setCurrent(idx)}
                                     className={`cursor-pointer w-20 h-20 md:w-full md:h-auto object-cover rounded-md transition-all ${current === idx
                                             ? "ring-2 ring-blue-500 scale-95"
