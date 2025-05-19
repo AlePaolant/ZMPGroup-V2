@@ -10,7 +10,7 @@
   <p align="center">
     Sito web creato da Alessandro Paolantonio per ZMP GROUP
     <br />
-    <a href="https:www.zmpgroup.it"><strong>Guarda il sito »</strong></a>
+    <a href="https://zmpgroup.it"><strong>Guarda il sito »</strong></a>
   </p>
 </div>
 
@@ -80,8 +80,8 @@ tunnels:
 
 1. **Clona il repository**
    ```bash
-   git clone https://github.com/tuo-username/nome-repo.git
-   cd nome-repo
+   git clone https://github.com/AlePaolant/ZMPGroup-V2.git
+   cd ZMPGroup-V2
    ```
 2. **Backend Strapi**
    ```bash
@@ -110,81 +110,10 @@ tunnels:
 - `pg`: Connessione PostgreSQL
 
 
-## Configurazione VPS
-**DEBIAN 12**   
-sistema pre installato
-1. **ACCESSO AL SERVER**
-  ```bash
-  ssh root@IP_DEL_SERVER
-  ```
-2. **CONFIGURAZIONE DI BASE (SICUREZZA)**
-  - creazione di un utente normale:
-  ```bash
-  adduser alepaolant
-  usermod -aG sudo alepaolant
-  ```
-  - copia la chiave SSH nel nuovo utente, in modo da connettermi come alepaolant via SSH, proprio come root
-  ```bash
-  rsync --archive --chown=alepaolant:alepaolant ~/.ssh /home/alepaolant
-  ```
-  - Disabilitare l'accesso root via SSH
-  ```bash
-  nano /etc/ssh/sshd_config
-  PermitRootLogin no
-  ```
-  ```bash
-  systemctl restart ssh
-  ```
-   **IMPORTANTE:** prima di disabilitare l'accesso prova ad entrare da un'altra finestra, per non rischiare di rimanere fuori
-   ```bash
-   ssh alepaolant@IP_DEL_SERVER
-  ```
-3. **AGGIORNAMENTO SISTEMA**
-  e installazione utility base:
-  ```bash
-  apt update && apt upgrade -y
-  ```
-  ```bash
-  apt install -y curl ufw htop fail2ban git unzip
-  ```
-4. **FIREWALL + SSHGUARD**
-- UFW = Uncomplicated Firewall:
-lascia aperta porta 22 per SSH, 80 per HTTP, 443 HTTPS
-```bash
-sudo apt install ufw -y
-ufw allow OpenSSH
-ufw allow http
-ufw allow https
-ufw enable
-  ```
-- SSHGUARD (contro brute force - tipo FAIL2BAN):
-```bash
-  ```
-5. **INSTALLAZIONE STACK DI BASE**
-- **nvm (node version manager)**
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-source ~/.bashrc  # (o ~/.zshrc se usi Zsh)
-  ```
-- **Node.js 18+ (compatibile con Next.js 15 e Strapi 5)**
-```bash
-nvm install --lts #ultima versione di node, attualmente v22.15.0
-  ```
-- **PostgreSQL**
-```bash
-sudo apt install -y postgresql postgresql-contrib
-  ```
-AAAA. **NGINX** - **Conta che la directory ora è:**
-```bash
-cd /var/www/zmpgroup.it/
-  ```
-
 
 
 ## Roadmap & TODO
 **Ottimizzazione SEO**
-**Privacy**
-**Deployment**
 1. **VPS**
 - `Hetzner`: 2vCPU - 4GB Ram - 40GB SSD - 20TB - AMD
 2. **Dominio**
@@ -192,12 +121,10 @@ cd /var/www/zmpgroup.it/
     b. SSL (Let's Encrypt)
 3. **Backup**
     a. Automazione backup giornalieri
-    b. Replica database su cloud storage
-4. **Firewall e Sicurezza**
+    b. Replica database su HDD privato
 
-## Licenza
-Il codice è proprietario e di proprietà dell'azienda ZMP GROUP. 
-È concesso in uso esclusivo per il progetto specificato.
+# Licenza
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Contatti:
 Alessandro Paolantonio  - [alexpaolantonio@gmail.com](mailto:alexpaolantonio@gmail.com) -  [+39 327 4309080](tel:+393274309080)
